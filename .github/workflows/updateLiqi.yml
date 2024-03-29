@@ -22,10 +22,10 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install requests
 
       - name: Execute Python Script
-        run: python main.py
+        run: python fetch.py
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -40,11 +40,19 @@ jobs:
       - name: Generate Proto file from JSON
         run: pbjs -t proto ./liqi.json -o ./liqi.proto
 
+      - name: Generate GRPC file from Proto
+        run: |
+          pip install grpcio grpcio-tools
+          python -m grpc_tools.protoc --pyi_out=./python --python_out=./python --grpc_python_out=./python --proto_path=. ./liqi.proto
+
       - name: Commit and Push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add liqi.json
           git add liqi.proto
+          git add python/liqi_pb2.py
+          git add python/liqi_pb2.pyi
+          git add python/liqi_pb2_grpc.py
           git commit -m "Auto-update files" || echo "No changes to commit"
           git push origin HEAD:main
