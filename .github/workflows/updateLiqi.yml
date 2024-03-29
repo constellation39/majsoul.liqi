@@ -1,0 +1,50 @@
+name: Protobuf Compilation and Python Script Execution
+
+on:
+  push:
+    branches:
+      - main # 或者是您希望触发此工作流的分支
+
+jobs:
+  build-and-generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.11' # 指定 Python 的版本
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Execute Python Script
+        run: python main.py
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14' # 指定 Node.js 的版本
+
+      - name: Install protobufjs and protobufjs-cli
+        run: |
+          npm install -g protobufjs@7.2.4
+          npm install -g protobufjs-cli@1.1.1
+
+      - name: Generate Proto file from JSON
+        run: pbjs -t proto ./liqi.json -o ./liqi.proto
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add liqi.json
+          git add liqi.proto
+          git commit -m "Auto-update files" || echo "No changes to commit"
+          git push origin HEAD:main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
