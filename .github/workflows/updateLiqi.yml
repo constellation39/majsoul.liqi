@@ -3,7 +3,9 @@ name: Protobuf Compilation and Python Script Execution
 on:
   push:
     branches:
-      - main # 或者是您希望触发此工作流的分支
+      - main
+permissions:
+  contents: write
 
 jobs:
   build-and-generate:
@@ -46,5 +48,3 @@ jobs:
           git add liqi.proto
           git commit -m "Auto-update files" || echo "No changes to commit"
           git push origin HEAD:main
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN  }}
