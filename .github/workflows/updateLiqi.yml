@@ -1,9 +1,9 @@
 name: Protobuf Compilation and Python Script Execution
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 0 * * *'  # 每天UTC时间00:00运行
+  workflow_dispatch:    # 允许手动触发
 permissions:
   contents: write
 
