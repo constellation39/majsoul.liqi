@@ -1549,6 +1549,21 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqNextRoundVillage.SerializeToString,
                 response_deserializer=liqi__pb2.ResNextRoundVillage.FromString,
                 )
+        self.resolveFestivalActivityProposal = channel.unary_unary(
+                '/lq.Lobby/resolveFestivalActivityProposal',
+                request_serializer=liqi__pb2.ReqResolveFestivalActivityProposal.SerializeToString,
+                response_deserializer=liqi__pb2.ResResolveFestivalActivityProposal.FromString,
+                )
+        self.resolveFestivalActivityEvent = channel.unary_unary(
+                '/lq.Lobby/resolveFestivalActivityEvent',
+                request_serializer=liqi__pb2.ReqResolveFestivalActivityEvent.SerializeToString,
+                response_deserializer=liqi__pb2.ResResolveFestivalActivityEvent.FromString,
+                )
+        self.buyFestivalProposal = channel.unary_unary(
+                '/lq.Lobby/buyFestivalProposal',
+                request_serializer=liqi__pb2.ReqBuyFestivalProposal.SerializeToString,
+                response_deserializer=liqi__pb2.ResBuyFestivalProposal.FromString,
+                )
 
 
 class LobbyServicer(object):
@@ -3396,6 +3411,24 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def resolveFestivalActivityProposal(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def resolveFestivalActivityEvent(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def buyFestivalProposal(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LobbyServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -4933,6 +4966,21 @@ def add_LobbyServicer_to_server(servicer, server):
                     servicer.nextRoundVillage,
                     request_deserializer=liqi__pb2.ReqNextRoundVillage.FromString,
                     response_serializer=liqi__pb2.ResNextRoundVillage.SerializeToString,
+            ),
+            'resolveFestivalActivityProposal': grpc.unary_unary_rpc_method_handler(
+                    servicer.resolveFestivalActivityProposal,
+                    request_deserializer=liqi__pb2.ReqResolveFestivalActivityProposal.FromString,
+                    response_serializer=liqi__pb2.ResResolveFestivalActivityProposal.SerializeToString,
+            ),
+            'resolveFestivalActivityEvent': grpc.unary_unary_rpc_method_handler(
+                    servicer.resolveFestivalActivityEvent,
+                    request_deserializer=liqi__pb2.ReqResolveFestivalActivityEvent.FromString,
+                    response_serializer=liqi__pb2.ResResolveFestivalActivityEvent.SerializeToString,
+            ),
+            'buyFestivalProposal': grpc.unary_unary_rpc_method_handler(
+                    servicer.buyFestivalProposal,
+                    request_deserializer=liqi__pb2.ReqBuyFestivalProposal.FromString,
+                    response_serializer=liqi__pb2.ResBuyFestivalProposal.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -10160,6 +10208,57 @@ class Lobby(object):
         return grpc.experimental.unary_unary(request, target, '/lq.Lobby/nextRoundVillage',
             liqi__pb2.ReqNextRoundVillage.SerializeToString,
             liqi__pb2.ResNextRoundVillage.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def resolveFestivalActivityProposal(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/lq.Lobby/resolveFestivalActivityProposal',
+            liqi__pb2.ReqResolveFestivalActivityProposal.SerializeToString,
+            liqi__pb2.ResResolveFestivalActivityProposal.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def resolveFestivalActivityEvent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/lq.Lobby/resolveFestivalActivityEvent',
+            liqi__pb2.ReqResolveFestivalActivityEvent.SerializeToString,
+            liqi__pb2.ResResolveFestivalActivityEvent.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def buyFestivalProposal(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/lq.Lobby/buyFestivalProposal',
+            liqi__pb2.ReqBuyFestivalProposal.SerializeToString,
+            liqi__pb2.ResBuyFestivalProposal.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
