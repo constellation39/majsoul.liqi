@@ -1034,11 +1034,6 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqFetchCustomizedContestList.SerializeToString,
                 response_deserializer=liqi__pb2.ResFetchCustomizedContestList.FromString,
                 _registered_method=True)
-        self.fetchCustomizedContestExtendInfo = channel.unary_unary(
-                '/lq.Lobby/fetchCustomizedContestExtendInfo',
-                request_serializer=liqi__pb2.ReqFetchCustomizedContestExtendInfo.SerializeToString,
-                response_deserializer=liqi__pb2.ResFetchCustomizedContestExtendInfo.FromString,
-                _registered_method=True)
         self.fetchCustomizedContestAuthInfo = channel.unary_unary(
                 '/lq.Lobby/fetchCustomizedContestAuthInfo',
                 request_serializer=liqi__pb2.ReqFetchCustomizedContestAuthInfo.SerializeToString,
@@ -1064,6 +1059,11 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqFetchCustomizedContestByContestId.SerializeToString,
                 response_deserializer=liqi__pb2.ResFetchCustomizedContestByContestId.FromString,
                 _registered_method=True)
+        self.signupCustomizedContest = channel.unary_unary(
+                '/lq.Lobby/signupCustomizedContest',
+                request_serializer=liqi__pb2.ReqSignupCustomizedContest.SerializeToString,
+                response_deserializer=liqi__pb2.ResSignupCustomizedContest.FromString,
+                _registered_method=True)
         self.startCustomizedContest = channel.unary_unary(
                 '/lq.Lobby/startCustomizedContest',
                 request_serializer=liqi__pb2.ReqStartCustomizedContest.SerializeToString,
@@ -1071,7 +1071,7 @@ class LobbyStub(object):
                 _registered_method=True)
         self.stopCustomizedContest = channel.unary_unary(
                 '/lq.Lobby/stopCustomizedContest',
-                request_serializer=liqi__pb2.ReqCommon.SerializeToString,
+                request_serializer=liqi__pb2.ReqStopCustomizedContest.SerializeToString,
                 response_deserializer=liqi__pb2.ResCommon.FromString,
                 _registered_method=True)
         self.joinCustomizedContestChatRoom = channel.unary_unary(
@@ -1127,6 +1127,11 @@ class LobbyStub(object):
         self.completeActivityTask = channel.unary_unary(
                 '/lq.Lobby/completeActivityTask',
                 request_serializer=liqi__pb2.ReqCompleteActivityTask.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.completeActivityTaskBatch = channel.unary_unary(
+                '/lq.Lobby/completeActivityTaskBatch',
+                request_serializer=liqi__pb2.ReqCompleteActivityTaskBatch.SerializeToString,
                 response_deserializer=liqi__pb2.ResCommon.FromString,
                 _registered_method=True)
         self.completeActivityFlipTask = channel.unary_unary(
@@ -1588,6 +1593,51 @@ class LobbyStub(object):
                 '/lq.Lobby/buyFestivalProposal',
                 request_serializer=liqi__pb2.ReqBuyFestivalProposal.SerializeToString,
                 response_deserializer=liqi__pb2.ResBuyFestivalProposal.FromString,
+                _registered_method=True)
+        self.islandActivityMove = channel.unary_unary(
+                '/lq.Lobby/islandActivityMove',
+                request_serializer=liqi__pb2.ReqIslandActivityMove.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.islandActivityBuy = channel.unary_unary(
+                '/lq.Lobby/islandActivityBuy',
+                request_serializer=liqi__pb2.ReqIslandActivityBuy.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.islandActivitySell = channel.unary_unary(
+                '/lq.Lobby/islandActivitySell',
+                request_serializer=liqi__pb2.ReqIslandActivitySell.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.islandActivityTidyBag = channel.unary_unary(
+                '/lq.Lobby/islandActivityTidyBag',
+                request_serializer=liqi__pb2.ReqIslandActivityTidyBag.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.islandActivityUnlockBagGrid = channel.unary_unary(
+                '/lq.Lobby/islandActivityUnlockBagGrid',
+                request_serializer=liqi__pb2.ReqIslandActivityUnlockBagGrid.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.createCustomizedContest = channel.unary_unary(
+                '/lq.Lobby/createCustomizedContest',
+                request_serializer=liqi__pb2.ReqCreateCustomizedContest.SerializeToString,
+                response_deserializer=liqi__pb2.ResCreateCustomizedContest.FromString,
+                _registered_method=True)
+        self.fetchManagerCustomizedContestList = channel.unary_unary(
+                '/lq.Lobby/fetchManagerCustomizedContestList',
+                request_serializer=liqi__pb2.ReqFetchmanagerCustomizedContestList.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchManagerCustomizedContestList.FromString,
+                _registered_method=True)
+        self.fetchManagerCustomizedContest = channel.unary_unary(
+                '/lq.Lobby/fetchManagerCustomizedContest',
+                request_serializer=liqi__pb2.ReqFetchManagerCustomizedContest.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchManagerCustomizedContest.FromString,
+                _registered_method=True)
+        self.updateManagerCustomizedContest = channel.unary_unary(
+                '/lq.Lobby/updateManagerCustomizedContest',
+                request_serializer=liqi__pb2.ReqUpdateManagerCustomizedContest.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
                 _registered_method=True)
 
 
@@ -2788,12 +2838,6 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def fetchCustomizedContestExtendInfo(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def fetchCustomizedContestAuthInfo(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2819,6 +2863,12 @@ class LobbyServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def fetchCustomizedContestByContestId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def signupCustomizedContest(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2897,6 +2947,12 @@ class LobbyServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def completeActivityTask(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def completeActivityTaskBatch(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3449,6 +3505,60 @@ class LobbyServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def buyFestivalProposal(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def islandActivityMove(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def islandActivityBuy(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def islandActivitySell(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def islandActivityTidyBag(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def islandActivityUnlockBagGrid(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def createCustomizedContest(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchManagerCustomizedContestList(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchManagerCustomizedContest(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def updateManagerCustomizedContest(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -4452,11 +4562,6 @@ def add_LobbyServicer_to_server(servicer, server):
                     request_deserializer=liqi__pb2.ReqFetchCustomizedContestList.FromString,
                     response_serializer=liqi__pb2.ResFetchCustomizedContestList.SerializeToString,
             ),
-            'fetchCustomizedContestExtendInfo': grpc.unary_unary_rpc_method_handler(
-                    servicer.fetchCustomizedContestExtendInfo,
-                    request_deserializer=liqi__pb2.ReqFetchCustomizedContestExtendInfo.FromString,
-                    response_serializer=liqi__pb2.ResFetchCustomizedContestExtendInfo.SerializeToString,
-            ),
             'fetchCustomizedContestAuthInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.fetchCustomizedContestAuthInfo,
                     request_deserializer=liqi__pb2.ReqFetchCustomizedContestAuthInfo.FromString,
@@ -4482,6 +4587,11 @@ def add_LobbyServicer_to_server(servicer, server):
                     request_deserializer=liqi__pb2.ReqFetchCustomizedContestByContestId.FromString,
                     response_serializer=liqi__pb2.ResFetchCustomizedContestByContestId.SerializeToString,
             ),
+            'signupCustomizedContest': grpc.unary_unary_rpc_method_handler(
+                    servicer.signupCustomizedContest,
+                    request_deserializer=liqi__pb2.ReqSignupCustomizedContest.FromString,
+                    response_serializer=liqi__pb2.ResSignupCustomizedContest.SerializeToString,
+            ),
             'startCustomizedContest': grpc.unary_unary_rpc_method_handler(
                     servicer.startCustomizedContest,
                     request_deserializer=liqi__pb2.ReqStartCustomizedContest.FromString,
@@ -4489,7 +4599,7 @@ def add_LobbyServicer_to_server(servicer, server):
             ),
             'stopCustomizedContest': grpc.unary_unary_rpc_method_handler(
                     servicer.stopCustomizedContest,
-                    request_deserializer=liqi__pb2.ReqCommon.FromString,
+                    request_deserializer=liqi__pb2.ReqStopCustomizedContest.FromString,
                     response_serializer=liqi__pb2.ResCommon.SerializeToString,
             ),
             'joinCustomizedContestChatRoom': grpc.unary_unary_rpc_method_handler(
@@ -4545,6 +4655,11 @@ def add_LobbyServicer_to_server(servicer, server):
             'completeActivityTask': grpc.unary_unary_rpc_method_handler(
                     servicer.completeActivityTask,
                     request_deserializer=liqi__pb2.ReqCompleteActivityTask.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'completeActivityTaskBatch': grpc.unary_unary_rpc_method_handler(
+                    servicer.completeActivityTaskBatch,
+                    request_deserializer=liqi__pb2.ReqCompleteActivityTaskBatch.FromString,
                     response_serializer=liqi__pb2.ResCommon.SerializeToString,
             ),
             'completeActivityFlipTask': grpc.unary_unary_rpc_method_handler(
@@ -5006,6 +5121,51 @@ def add_LobbyServicer_to_server(servicer, server):
                     servicer.buyFestivalProposal,
                     request_deserializer=liqi__pb2.ReqBuyFestivalProposal.FromString,
                     response_serializer=liqi__pb2.ResBuyFestivalProposal.SerializeToString,
+            ),
+            'islandActivityMove': grpc.unary_unary_rpc_method_handler(
+                    servicer.islandActivityMove,
+                    request_deserializer=liqi__pb2.ReqIslandActivityMove.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'islandActivityBuy': grpc.unary_unary_rpc_method_handler(
+                    servicer.islandActivityBuy,
+                    request_deserializer=liqi__pb2.ReqIslandActivityBuy.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'islandActivitySell': grpc.unary_unary_rpc_method_handler(
+                    servicer.islandActivitySell,
+                    request_deserializer=liqi__pb2.ReqIslandActivitySell.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'islandActivityTidyBag': grpc.unary_unary_rpc_method_handler(
+                    servicer.islandActivityTidyBag,
+                    request_deserializer=liqi__pb2.ReqIslandActivityTidyBag.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'islandActivityUnlockBagGrid': grpc.unary_unary_rpc_method_handler(
+                    servicer.islandActivityUnlockBagGrid,
+                    request_deserializer=liqi__pb2.ReqIslandActivityUnlockBagGrid.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'createCustomizedContest': grpc.unary_unary_rpc_method_handler(
+                    servicer.createCustomizedContest,
+                    request_deserializer=liqi__pb2.ReqCreateCustomizedContest.FromString,
+                    response_serializer=liqi__pb2.ResCreateCustomizedContest.SerializeToString,
+            ),
+            'fetchManagerCustomizedContestList': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchManagerCustomizedContestList,
+                    request_deserializer=liqi__pb2.ReqFetchmanagerCustomizedContestList.FromString,
+                    response_serializer=liqi__pb2.ResFetchManagerCustomizedContestList.SerializeToString,
+            ),
+            'fetchManagerCustomizedContest': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchManagerCustomizedContest,
+                    request_deserializer=liqi__pb2.ReqFetchManagerCustomizedContest.FromString,
+                    response_serializer=liqi__pb2.ResFetchManagerCustomizedContest.SerializeToString,
+            ),
+            'updateManagerCustomizedContest': grpc.unary_unary_rpc_method_handler(
+                    servicer.updateManagerCustomizedContest,
+                    request_deserializer=liqi__pb2.ReqUpdateManagerCustomizedContest.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -10392,33 +10552,6 @@ class Lobby(object):
             _registered_method=True)
 
     @staticmethod
-    def fetchCustomizedContestExtendInfo(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/lq.Lobby/fetchCustomizedContestExtendInfo',
-            liqi__pb2.ReqFetchCustomizedContestExtendInfo.SerializeToString,
-            liqi__pb2.ResFetchCustomizedContestExtendInfo.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
     def fetchCustomizedContestAuthInfo(request,
             target,
             options=(),
@@ -10554,6 +10687,33 @@ class Lobby(object):
             _registered_method=True)
 
     @staticmethod
+    def signupCustomizedContest(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/signupCustomizedContest',
+            liqi__pb2.ReqSignupCustomizedContest.SerializeToString,
+            liqi__pb2.ResSignupCustomizedContest.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
     def startCustomizedContest(request,
             target,
             options=(),
@@ -10595,7 +10755,7 @@ class Lobby(object):
             request,
             target,
             '/lq.Lobby/stopCustomizedContest',
-            liqi__pb2.ReqCommon.SerializeToString,
+            liqi__pb2.ReqStopCustomizedContest.SerializeToString,
             liqi__pb2.ResCommon.FromString,
             options,
             channel_credentials,
@@ -10893,6 +11053,33 @@ class Lobby(object):
             target,
             '/lq.Lobby/completeActivityTask',
             liqi__pb2.ReqCompleteActivityTask.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def completeActivityTaskBatch(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/completeActivityTaskBatch',
+            liqi__pb2.ReqCompleteActivityTaskBatch.SerializeToString,
             liqi__pb2.ResCommon.FromString,
             options,
             channel_credentials,
@@ -13378,6 +13565,249 @@ class Lobby(object):
             '/lq.Lobby/buyFestivalProposal',
             liqi__pb2.ReqBuyFestivalProposal.SerializeToString,
             liqi__pb2.ResBuyFestivalProposal.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def islandActivityMove(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/islandActivityMove',
+            liqi__pb2.ReqIslandActivityMove.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def islandActivityBuy(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/islandActivityBuy',
+            liqi__pb2.ReqIslandActivityBuy.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def islandActivitySell(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/islandActivitySell',
+            liqi__pb2.ReqIslandActivitySell.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def islandActivityTidyBag(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/islandActivityTidyBag',
+            liqi__pb2.ReqIslandActivityTidyBag.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def islandActivityUnlockBagGrid(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/islandActivityUnlockBagGrid',
+            liqi__pb2.ReqIslandActivityUnlockBagGrid.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def createCustomizedContest(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/createCustomizedContest',
+            liqi__pb2.ReqCreateCustomizedContest.SerializeToString,
+            liqi__pb2.ResCreateCustomizedContest.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchManagerCustomizedContestList(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchManagerCustomizedContestList',
+            liqi__pb2.ReqFetchmanagerCustomizedContestList.SerializeToString,
+            liqi__pb2.ResFetchManagerCustomizedContestList.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchManagerCustomizedContest(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchManagerCustomizedContest',
+            liqi__pb2.ReqFetchManagerCustomizedContest.SerializeToString,
+            liqi__pb2.ResFetchManagerCustomizedContest.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def updateManagerCustomizedContest(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/updateManagerCustomizedContest',
+            liqi__pb2.ReqUpdateManagerCustomizedContest.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
             options,
             channel_credentials,
             insecure,
