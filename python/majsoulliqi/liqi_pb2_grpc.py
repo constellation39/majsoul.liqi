@@ -1639,6 +1639,26 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqUpdateManagerCustomizedContest.SerializeToString,
                 response_deserializer=liqi__pb2.ResCommon.FromString,
                 _registered_method=True)
+        self.fetchContestPlayerRank = channel.unary_unary(
+                '/lq.Lobby/fetchContestPlayerRank',
+                request_serializer=liqi__pb2.ReqFetchContestPlayerRank.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchContestPlayerRank.FromString,
+                _registered_method=True)
+        self.fetchReadyPlayerList = channel.unary_unary(
+                '/lq.Lobby/fetchReadyPlayerList',
+                request_serializer=liqi__pb2.ReqFetchReadyPlayerList.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchReadyPlayerList.FromString,
+                _registered_method=True)
+        self.createGamePlan = channel.unary_unary(
+                '/lq.Lobby/createGamePlan',
+                request_serializer=liqi__pb2.ReqCreateGamePlan.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.generateContestManagerLoginCode = channel.unary_unary(
+                '/lq.Lobby/generateContestManagerLoginCode',
+                request_serializer=liqi__pb2.ReqCommon.SerializeToString,
+                response_deserializer=liqi__pb2.ResGenerateContestManagerLoginCode.FromString,
+                _registered_method=True)
 
 
 class LobbyServicer(object):
@@ -3564,6 +3584,30 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def fetchContestPlayerRank(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchReadyPlayerList(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def createGamePlan(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def generateContestManagerLoginCode(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LobbyServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -5166,6 +5210,26 @@ def add_LobbyServicer_to_server(servicer, server):
                     servicer.updateManagerCustomizedContest,
                     request_deserializer=liqi__pb2.ReqUpdateManagerCustomizedContest.FromString,
                     response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'fetchContestPlayerRank': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchContestPlayerRank,
+                    request_deserializer=liqi__pb2.ReqFetchContestPlayerRank.FromString,
+                    response_serializer=liqi__pb2.ResFetchContestPlayerRank.SerializeToString,
+            ),
+            'fetchReadyPlayerList': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchReadyPlayerList,
+                    request_deserializer=liqi__pb2.ReqFetchReadyPlayerList.FromString,
+                    response_serializer=liqi__pb2.ResFetchReadyPlayerList.SerializeToString,
+            ),
+            'createGamePlan': grpc.unary_unary_rpc_method_handler(
+                    servicer.createGamePlan,
+                    request_deserializer=liqi__pb2.ReqCreateGamePlan.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'generateContestManagerLoginCode': grpc.unary_unary_rpc_method_handler(
+                    servicer.generateContestManagerLoginCode,
+                    request_deserializer=liqi__pb2.ReqCommon.FromString,
+                    response_serializer=liqi__pb2.ResGenerateContestManagerLoginCode.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -13808,6 +13872,114 @@ class Lobby(object):
             '/lq.Lobby/updateManagerCustomizedContest',
             liqi__pb2.ReqUpdateManagerCustomizedContest.SerializeToString,
             liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchContestPlayerRank(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchContestPlayerRank',
+            liqi__pb2.ReqFetchContestPlayerRank.SerializeToString,
+            liqi__pb2.ResFetchContestPlayerRank.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchReadyPlayerList(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchReadyPlayerList',
+            liqi__pb2.ReqFetchReadyPlayerList.SerializeToString,
+            liqi__pb2.ResFetchReadyPlayerList.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def createGamePlan(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/createGamePlan',
+            liqi__pb2.ReqCreateGamePlan.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def generateContestManagerLoginCode(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/generateContestManagerLoginCode',
+            liqi__pb2.ReqCommon.SerializeToString,
+            liqi__pb2.ResGenerateContestManagerLoginCode.FromString,
             options,
             channel_credentials,
             insecure,

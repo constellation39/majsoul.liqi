@@ -2675,7 +2675,7 @@ class CustomizedContestAbstract(_message.Message):
     def __init__(self, unique_id: _Optional[int] = ..., contest_id: _Optional[int] = ..., contest_name: _Optional[str] = ..., state: _Optional[int] = ..., creator_id: _Optional[int] = ..., create_time: _Optional[int] = ..., start_time: _Optional[int] = ..., finish_time: _Optional[int] = ..., open: bool = ..., public_notice: _Optional[str] = ..., contest_type: _Optional[int] = ...) -> None: ...
 
 class CustomizedContestDetail(_message.Message):
-    __slots__ = ("unique_id", "contest_id", "contest_name", "state", "creator_id", "create_time", "start_time", "finish_time", "open", "rank_rule", "game_mode", "private_notice", "observer_switch", "emoji_switch", "contest_type", "disable_broadcast", "signup_start_time", "signup_end_time", "signup_type")
+    __slots__ = ("unique_id", "contest_id", "contest_name", "state", "creator_id", "create_time", "start_time", "finish_time", "open", "rank_rule", "game_mode", "private_notice", "observer_switch", "emoji_switch", "contest_type", "disable_broadcast", "signup_start_time", "signup_end_time", "signup_type", "auto_match")
     UNIQUE_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEST_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEST_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -2695,6 +2695,7 @@ class CustomizedContestDetail(_message.Message):
     SIGNUP_START_TIME_FIELD_NUMBER: _ClassVar[int]
     SIGNUP_END_TIME_FIELD_NUMBER: _ClassVar[int]
     SIGNUP_TYPE_FIELD_NUMBER: _ClassVar[int]
+    AUTO_MATCH_FIELD_NUMBER: _ClassVar[int]
     unique_id: int
     contest_id: int
     contest_name: str
@@ -2714,7 +2715,8 @@ class CustomizedContestDetail(_message.Message):
     signup_start_time: int
     signup_end_time: int
     signup_type: int
-    def __init__(self, unique_id: _Optional[int] = ..., contest_id: _Optional[int] = ..., contest_name: _Optional[str] = ..., state: _Optional[int] = ..., creator_id: _Optional[int] = ..., create_time: _Optional[int] = ..., start_time: _Optional[int] = ..., finish_time: _Optional[int] = ..., open: bool = ..., rank_rule: _Optional[int] = ..., game_mode: _Optional[_Union[GameMode, _Mapping]] = ..., private_notice: _Optional[str] = ..., observer_switch: _Optional[int] = ..., emoji_switch: _Optional[int] = ..., contest_type: _Optional[int] = ..., disable_broadcast: _Optional[int] = ..., signup_start_time: _Optional[int] = ..., signup_end_time: _Optional[int] = ..., signup_type: _Optional[int] = ...) -> None: ...
+    auto_match: int
+    def __init__(self, unique_id: _Optional[int] = ..., contest_id: _Optional[int] = ..., contest_name: _Optional[str] = ..., state: _Optional[int] = ..., creator_id: _Optional[int] = ..., create_time: _Optional[int] = ..., start_time: _Optional[int] = ..., finish_time: _Optional[int] = ..., open: bool = ..., rank_rule: _Optional[int] = ..., game_mode: _Optional[_Union[GameMode, _Mapping]] = ..., private_notice: _Optional[str] = ..., observer_switch: _Optional[int] = ..., emoji_switch: _Optional[int] = ..., contest_type: _Optional[int] = ..., disable_broadcast: _Optional[int] = ..., signup_start_time: _Optional[int] = ..., signup_end_time: _Optional[int] = ..., signup_type: _Optional[int] = ..., auto_match: _Optional[int] = ...) -> None: ...
 
 class CustomizedContestPlayerReport(_message.Message):
     __slots__ = ("rank_rule", "rank", "point", "game_ranks", "total_game_count")
@@ -6285,18 +6287,20 @@ class ReqEnterCustomizedContest(_message.Message):
     def __init__(self, unique_id: _Optional[int] = ..., lang: _Optional[str] = ...) -> None: ...
 
 class ResEnterCustomizedContest(_message.Message):
-    __slots__ = ("error", "detail_info", "player_report", "is_followed", "state")
+    __slots__ = ("error", "detail_info", "player_report", "is_followed", "state", "is_admin")
     ERROR_FIELD_NUMBER: _ClassVar[int]
     DETAIL_INFO_FIELD_NUMBER: _ClassVar[int]
     PLAYER_REPORT_FIELD_NUMBER: _ClassVar[int]
     IS_FOLLOWED_FIELD_NUMBER: _ClassVar[int]
     STATE_FIELD_NUMBER: _ClassVar[int]
+    IS_ADMIN_FIELD_NUMBER: _ClassVar[int]
     error: Error
     detail_info: CustomizedContestDetail
     player_report: CustomizedContestPlayerReport
     is_followed: bool
     state: int
-    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., detail_info: _Optional[_Union[CustomizedContestDetail, _Mapping]] = ..., player_report: _Optional[_Union[CustomizedContestPlayerReport, _Mapping]] = ..., is_followed: bool = ..., state: _Optional[int] = ...) -> None: ...
+    is_admin: bool
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., detail_info: _Optional[_Union[CustomizedContestDetail, _Mapping]] = ..., player_report: _Optional[_Union[CustomizedContestPlayerReport, _Mapping]] = ..., is_followed: bool = ..., state: _Optional[int] = ..., is_admin: bool = ...) -> None: ...
 
 class ReqFetchCustomizedContestOnlineInfo(_message.Message):
     __slots__ = ("unique_id",)
@@ -8130,19 +8134,42 @@ class ReqIslandActivityUnlockBagGrid(_message.Message):
     pos: _containers.RepeatedScalarFieldContainer[int]
     def __init__(self, activity_id: _Optional[int] = ..., bag_id: _Optional[int] = ..., pos: _Optional[_Iterable[int]] = ...) -> None: ...
 
+class ContestSetting(_message.Message):
+    __slots__ = ("level_limit", "game_limit", "system_broadcast")
+    class LevelLimit(_message.Message):
+        __slots__ = ("type", "value")
+        TYPE_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        type: int
+        value: int
+        def __init__(self, type: _Optional[int] = ..., value: _Optional[int] = ...) -> None: ...
+    LEVEL_LIMIT_FIELD_NUMBER: _ClassVar[int]
+    GAME_LIMIT_FIELD_NUMBER: _ClassVar[int]
+    SYSTEM_BROADCAST_FIELD_NUMBER: _ClassVar[int]
+    level_limit: _containers.RepeatedCompositeFieldContainer[ContestSetting.LevelLimit]
+    game_limit: int
+    system_broadcast: int
+    def __init__(self, level_limit: _Optional[_Iterable[_Union[ContestSetting.LevelLimit, _Mapping]]] = ..., game_limit: _Optional[int] = ..., system_broadcast: _Optional[int] = ...) -> None: ...
+
 class ReqCreateCustomizedContest(_message.Message):
-    __slots__ = ("name", "open_show", "game_rule_setting", "start_time", "end_time")
+    __slots__ = ("name", "open_show", "game_rule_setting", "start_time", "end_time", "auto_match", "rank_rule", "contest_setting")
     NAME_FIELD_NUMBER: _ClassVar[int]
     OPEN_SHOW_FIELD_NUMBER: _ClassVar[int]
     GAME_RULE_SETTING_FIELD_NUMBER: _ClassVar[int]
     START_TIME_FIELD_NUMBER: _ClassVar[int]
     END_TIME_FIELD_NUMBER: _ClassVar[int]
+    AUTO_MATCH_FIELD_NUMBER: _ClassVar[int]
+    RANK_RULE_FIELD_NUMBER: _ClassVar[int]
+    CONTEST_SETTING_FIELD_NUMBER: _ClassVar[int]
     name: str
     open_show: int
     game_rule_setting: GameMode
     start_time: int
     end_time: int
-    def __init__(self, name: _Optional[str] = ..., open_show: _Optional[int] = ..., game_rule_setting: _Optional[_Union[GameMode, _Mapping]] = ..., start_time: _Optional[int] = ..., end_time: _Optional[int] = ...) -> None: ...
+    auto_match: int
+    rank_rule: int
+    contest_setting: ContestSetting
+    def __init__(self, name: _Optional[str] = ..., open_show: _Optional[int] = ..., game_rule_setting: _Optional[_Union[GameMode, _Mapping]] = ..., start_time: _Optional[int] = ..., end_time: _Optional[int] = ..., auto_match: _Optional[int] = ..., rank_rule: _Optional[int] = ..., contest_setting: _Optional[_Union[ContestSetting, _Mapping]] = ...) -> None: ...
 
 class ResCreateCustomizedContest(_message.Message):
     __slots__ = ("error", "unique_id")
@@ -8173,7 +8200,7 @@ class ReqFetchManagerCustomizedContest(_message.Message):
     def __init__(self, unique_id: _Optional[int] = ...) -> None: ...
 
 class ResFetchManagerCustomizedContest(_message.Message):
-    __slots__ = ("error", "name", "open_show", "game_rule_setting", "start_time", "end_time", "auto_match", "rank_rule", "check_state", "checking_name")
+    __slots__ = ("error", "name", "open_show", "game_rule_setting", "start_time", "end_time", "auto_match", "rank_rule", "check_state", "checking_name", "contest_setting")
     ERROR_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     OPEN_SHOW_FIELD_NUMBER: _ClassVar[int]
@@ -8184,6 +8211,7 @@ class ResFetchManagerCustomizedContest(_message.Message):
     RANK_RULE_FIELD_NUMBER: _ClassVar[int]
     CHECK_STATE_FIELD_NUMBER: _ClassVar[int]
     CHECKING_NAME_FIELD_NUMBER: _ClassVar[int]
+    CONTEST_SETTING_FIELD_NUMBER: _ClassVar[int]
     error: Error
     name: str
     open_show: int
@@ -8194,10 +8222,11 @@ class ResFetchManagerCustomizedContest(_message.Message):
     rank_rule: int
     check_state: int
     checking_name: str
-    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., name: _Optional[str] = ..., open_show: _Optional[int] = ..., game_rule_setting: _Optional[_Union[GameMode, _Mapping]] = ..., start_time: _Optional[int] = ..., end_time: _Optional[int] = ..., auto_match: _Optional[int] = ..., rank_rule: _Optional[int] = ..., check_state: _Optional[int] = ..., checking_name: _Optional[str] = ...) -> None: ...
+    contest_setting: ContestSetting
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., name: _Optional[str] = ..., open_show: _Optional[int] = ..., game_rule_setting: _Optional[_Union[GameMode, _Mapping]] = ..., start_time: _Optional[int] = ..., end_time: _Optional[int] = ..., auto_match: _Optional[int] = ..., rank_rule: _Optional[int] = ..., check_state: _Optional[int] = ..., checking_name: _Optional[str] = ..., contest_setting: _Optional[_Union[ContestSetting, _Mapping]] = ...) -> None: ...
 
 class ReqUpdateManagerCustomizedContest(_message.Message):
-    __slots__ = ("name", "open_show", "game_rule_setting", "start_time", "end_time", "unique_id", "auto_match", "rank_rule")
+    __slots__ = ("name", "open_show", "game_rule_setting", "start_time", "end_time", "unique_id", "auto_match", "rank_rule", "contest_setting")
     NAME_FIELD_NUMBER: _ClassVar[int]
     OPEN_SHOW_FIELD_NUMBER: _ClassVar[int]
     GAME_RULE_SETTING_FIELD_NUMBER: _ClassVar[int]
@@ -8206,6 +8235,7 @@ class ReqUpdateManagerCustomizedContest(_message.Message):
     UNIQUE_ID_FIELD_NUMBER: _ClassVar[int]
     AUTO_MATCH_FIELD_NUMBER: _ClassVar[int]
     RANK_RULE_FIELD_NUMBER: _ClassVar[int]
+    CONTEST_SETTING_FIELD_NUMBER: _ClassVar[int]
     name: str
     open_show: int
     game_rule_setting: GameMode
@@ -8214,7 +8244,112 @@ class ReqUpdateManagerCustomizedContest(_message.Message):
     unique_id: int
     auto_match: int
     rank_rule: int
-    def __init__(self, name: _Optional[str] = ..., open_show: _Optional[int] = ..., game_rule_setting: _Optional[_Union[GameMode, _Mapping]] = ..., start_time: _Optional[int] = ..., end_time: _Optional[int] = ..., unique_id: _Optional[int] = ..., auto_match: _Optional[int] = ..., rank_rule: _Optional[int] = ...) -> None: ...
+    contest_setting: ContestSetting
+    def __init__(self, name: _Optional[str] = ..., open_show: _Optional[int] = ..., game_rule_setting: _Optional[_Union[GameMode, _Mapping]] = ..., start_time: _Optional[int] = ..., end_time: _Optional[int] = ..., unique_id: _Optional[int] = ..., auto_match: _Optional[int] = ..., rank_rule: _Optional[int] = ..., contest_setting: _Optional[_Union[ContestSetting, _Mapping]] = ...) -> None: ...
+
+class ReqFetchContestPlayerRank(_message.Message):
+    __slots__ = ("unique_id", "limit", "offset")
+    UNIQUE_ID_FIELD_NUMBER: _ClassVar[int]
+    LIMIT_FIELD_NUMBER: _ClassVar[int]
+    OFFSET_FIELD_NUMBER: _ClassVar[int]
+    unique_id: int
+    limit: int
+    offset: int
+    def __init__(self, unique_id: _Optional[int] = ..., limit: _Optional[int] = ..., offset: _Optional[int] = ...) -> None: ...
+
+class ResFetchContestPlayerRank(_message.Message):
+    __slots__ = ("error", "total", "rank", "player_data")
+    class ContestPlayerAccountData(_message.Message):
+        __slots__ = ("total_game_count", "recent_games", "highest_series_points")
+        class ContestGameResult(_message.Message):
+            __slots__ = ("rank", "total_point")
+            RANK_FIELD_NUMBER: _ClassVar[int]
+            TOTAL_POINT_FIELD_NUMBER: _ClassVar[int]
+            rank: int
+            total_point: int
+            def __init__(self, rank: _Optional[int] = ..., total_point: _Optional[int] = ...) -> None: ...
+        class ContestSeriesGameResult(_message.Message):
+            __slots__ = ("key", "results")
+            KEY_FIELD_NUMBER: _ClassVar[int]
+            RESULTS_FIELD_NUMBER: _ClassVar[int]
+            key: int
+            results: _containers.RepeatedCompositeFieldContainer[ResFetchContestPlayerRank.ContestPlayerAccountData.ContestGameResult]
+            def __init__(self, key: _Optional[int] = ..., results: _Optional[_Iterable[_Union[ResFetchContestPlayerRank.ContestPlayerAccountData.ContestGameResult, _Mapping]]] = ...) -> None: ...
+        TOTAL_GAME_COUNT_FIELD_NUMBER: _ClassVar[int]
+        RECENT_GAMES_FIELD_NUMBER: _ClassVar[int]
+        HIGHEST_SERIES_POINTS_FIELD_NUMBER: _ClassVar[int]
+        total_game_count: int
+        recent_games: _containers.RepeatedCompositeFieldContainer[ResFetchContestPlayerRank.ContestPlayerAccountData.ContestGameResult]
+        highest_series_points: _containers.RepeatedCompositeFieldContainer[ResFetchContestPlayerRank.ContestPlayerAccountData.ContestSeriesGameResult]
+        def __init__(self, total_game_count: _Optional[int] = ..., recent_games: _Optional[_Iterable[_Union[ResFetchContestPlayerRank.ContestPlayerAccountData.ContestGameResult, _Mapping]]] = ..., highest_series_points: _Optional[_Iterable[_Union[ResFetchContestPlayerRank.ContestPlayerAccountData.ContestSeriesGameResult, _Mapping]]] = ...) -> None: ...
+    class SeasonRank(_message.Message):
+        __slots__ = ("account_id", "nickname", "data")
+        ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
+        NICKNAME_FIELD_NUMBER: _ClassVar[int]
+        DATA_FIELD_NUMBER: _ClassVar[int]
+        account_id: int
+        nickname: str
+        data: ResFetchContestPlayerRank.ContestPlayerAccountData
+        def __init__(self, account_id: _Optional[int] = ..., nickname: _Optional[str] = ..., data: _Optional[_Union[ResFetchContestPlayerRank.ContestPlayerAccountData, _Mapping]] = ...) -> None: ...
+    class PlayerData(_message.Message):
+        __slots__ = ("rank", "data")
+        RANK_FIELD_NUMBER: _ClassVar[int]
+        DATA_FIELD_NUMBER: _ClassVar[int]
+        rank: int
+        data: ResFetchContestPlayerRank.ContestPlayerAccountData
+        def __init__(self, rank: _Optional[int] = ..., data: _Optional[_Union[ResFetchContestPlayerRank.ContestPlayerAccountData, _Mapping]] = ...) -> None: ...
+    ERROR_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_FIELD_NUMBER: _ClassVar[int]
+    RANK_FIELD_NUMBER: _ClassVar[int]
+    PLAYER_DATA_FIELD_NUMBER: _ClassVar[int]
+    error: Error
+    total: int
+    rank: _containers.RepeatedCompositeFieldContainer[ResFetchContestPlayerRank.SeasonRank]
+    player_data: ResFetchContestPlayerRank.PlayerData
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., total: _Optional[int] = ..., rank: _Optional[_Iterable[_Union[ResFetchContestPlayerRank.SeasonRank, _Mapping]]] = ..., player_data: _Optional[_Union[ResFetchContestPlayerRank.PlayerData, _Mapping]] = ...) -> None: ...
+
+class ReqFetchReadyPlayerList(_message.Message):
+    __slots__ = ("unique_id",)
+    UNIQUE_ID_FIELD_NUMBER: _ClassVar[int]
+    unique_id: int
+    def __init__(self, unique_id: _Optional[int] = ...) -> None: ...
+
+class ResFetchReadyPlayerList(_message.Message):
+    __slots__ = ("error", "list")
+    class Player(_message.Message):
+        __slots__ = ("account_id", "nickname")
+        ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
+        NICKNAME_FIELD_NUMBER: _ClassVar[int]
+        account_id: int
+        nickname: str
+        def __init__(self, account_id: _Optional[int] = ..., nickname: _Optional[str] = ...) -> None: ...
+    ERROR_FIELD_NUMBER: _ClassVar[int]
+    LIST_FIELD_NUMBER: _ClassVar[int]
+    error: Error
+    list: _containers.RepeatedCompositeFieldContainer[ResFetchReadyPlayerList.Player]
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., list: _Optional[_Iterable[_Union[ResFetchReadyPlayerList.Player, _Mapping]]] = ...) -> None: ...
+
+class ReqCreateGamePlan(_message.Message):
+    __slots__ = ("unique_id", "account_list", "game_start_time", "shuffle_seats", "ai_level")
+    UNIQUE_ID_FIELD_NUMBER: _ClassVar[int]
+    ACCOUNT_LIST_FIELD_NUMBER: _ClassVar[int]
+    GAME_START_TIME_FIELD_NUMBER: _ClassVar[int]
+    SHUFFLE_SEATS_FIELD_NUMBER: _ClassVar[int]
+    AI_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    unique_id: int
+    account_list: _containers.RepeatedScalarFieldContainer[int]
+    game_start_time: int
+    shuffle_seats: int
+    ai_level: int
+    def __init__(self, unique_id: _Optional[int] = ..., account_list: _Optional[_Iterable[int]] = ..., game_start_time: _Optional[int] = ..., shuffle_seats: _Optional[int] = ..., ai_level: _Optional[int] = ...) -> None: ...
+
+class ResGenerateContestManagerLoginCode(_message.Message):
+    __slots__ = ("error", "code")
+    ERROR_FIELD_NUMBER: _ClassVar[int]
+    CODE_FIELD_NUMBER: _ClassVar[int]
+    error: Error
+    code: str
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., code: _Optional[str] = ...) -> None: ...
 
 class ActionMJStart(_message.Message):
     __slots__ = ()
