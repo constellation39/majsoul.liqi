@@ -1659,6 +1659,116 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqCommon.SerializeToString,
                 response_deserializer=liqi__pb2.ResGenerateContestManagerLoginCode.FromString,
                 _registered_method=True)
+        self.amuletActivityStartGame = channel.unary_unary(
+                '/lq.Lobby/amuletActivityStartGame',
+                request_serializer=liqi__pb2.ReqAmuletActivityStartGame.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivityStartGame.FromString,
+                _registered_method=True)
+        self.amuletActivityOperate = channel.unary_unary(
+                '/lq.Lobby/amuletActivityOperate',
+                request_serializer=liqi__pb2.ReqAmuletActivityOperate.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivityOperate.FromString,
+                _registered_method=True)
+        self.amuletActivityChangeHands = channel.unary_unary(
+                '/lq.Lobby/amuletActivityChangeHands',
+                request_serializer=liqi__pb2.ReqAmuletActivityChangeHands.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivityChangeHands.FromString,
+                _registered_method=True)
+        self.amuletActivityUpgrade = channel.unary_unary(
+                '/lq.Lobby/amuletActivityUpgrade',
+                request_serializer=liqi__pb2.ReqAmuletActivityUpgrade.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivityUpgrade.FromString,
+                _registered_method=True)
+        self.amuletActivityBuy = channel.unary_unary(
+                '/lq.Lobby/amuletActivityBuy',
+                request_serializer=liqi__pb2.ReqAmuletActivityBuy.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivityBuy.FromString,
+                _registered_method=True)
+        self.amuletActivitySelectPack = channel.unary_unary(
+                '/lq.Lobby/amuletActivitySelectPack',
+                request_serializer=liqi__pb2.ReqAmuletActivitySelectPack.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivitySelectPack.FromString,
+                _registered_method=True)
+        self.amuletActivitySellEffect = channel.unary_unary(
+                '/lq.Lobby/amuletActivitySellEffect',
+                request_serializer=liqi__pb2.ReqAmuletActivitySellEffect.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivitySellEffect.FromString,
+                _registered_method=True)
+        self.amuletActivityEffectSort = channel.unary_unary(
+                '/lq.Lobby/amuletActivityEffectSort',
+                request_serializer=liqi__pb2.ReqAmuletActivityEffectSort.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.amuletActivityGiveup = channel.unary_unary(
+                '/lq.Lobby/amuletActivityGiveup',
+                request_serializer=liqi__pb2.ReqAmuletActivityGiveup.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.amuletActivityRefreshShop = channel.unary_unary(
+                '/lq.Lobby/amuletActivityRefreshShop',
+                request_serializer=liqi__pb2.ReqAmuletActivityRefreshShop.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivityRefreshShop.FromString,
+                _registered_method=True)
+        self.amuletActivitySelectFreeEffect = channel.unary_unary(
+                '/lq.Lobby/amuletActivitySelectFreeEffect',
+                request_serializer=liqi__pb2.ReqAmuletActivitySelectFreeEffect.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivitySelectFreeEffect.FromString,
+                _registered_method=True)
+        self.amuletActivityUpgradeShopBuff = channel.unary_unary(
+                '/lq.Lobby/amuletActivityUpgradeShopBuff',
+                request_serializer=liqi__pb2.ReqAmuletActivityUpgradeShopBuff.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivityUpgradeShopBuff.FromString,
+                _registered_method=True)
+        self.amuletActivityEndShopping = channel.unary_unary(
+                '/lq.Lobby/amuletActivityEndShopping',
+                request_serializer=liqi__pb2.ReqAmuletActivityEndShopping.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivityEndShopping.FromString,
+                _registered_method=True)
+        self.amuletActivitySetSkillLevel = channel.unary_unary(
+                '/lq.Lobby/amuletActivitySetSkillLevel',
+                request_serializer=liqi__pb2.ReqAmuletActivitySetSkillLevel.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.amuletActivityMaintainInfo = channel.unary_unary(
+                '/lq.Lobby/amuletActivityMaintainInfo',
+                request_serializer=liqi__pb2.ReqCommon.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivityMaintainInfo.FromString,
+                _registered_method=True)
+        self.storyActivityUnlock = channel.unary_unary(
+                '/lq.Lobby/storyActivityUnlock',
+                request_serializer=liqi__pb2.ReqStoryActivityUnlock.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.storyActivityUnlockEnding = channel.unary_unary(
+                '/lq.Lobby/storyActivityUnlockEnding',
+                request_serializer=liqi__pb2.ReqStoryActivityUnlockEnding.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.storyActivityReceiveEndingReward = channel.unary_unary(
+                '/lq.Lobby/storyActivityReceiveEndingReward',
+                request_serializer=liqi__pb2.ReqStoryActivityReceiveEndingReward.SerializeToString,
+                response_deserializer=liqi__pb2.ResStoryReward.FromString,
+                _registered_method=True)
+        self.storyActivityReceiveFinishReward = channel.unary_unary(
+                '/lq.Lobby/storyActivityReceiveFinishReward',
+                request_serializer=liqi__pb2.ReqStoryActivityReceiveFinishReward.SerializeToString,
+                response_deserializer=liqi__pb2.ResStoryReward.FromString,
+                _registered_method=True)
+        self.storyActivityReceiveAllFinishReward = channel.unary_unary(
+                '/lq.Lobby/storyActivityReceiveAllFinishReward',
+                request_serializer=liqi__pb2.ReqStoryActivityReceiveAllFinishReward.SerializeToString,
+                response_deserializer=liqi__pb2.ResStoryReward.FromString,
+                _registered_method=True)
+        self.storyActivityUnlockEndingAndReceive = channel.unary_unary(
+                '/lq.Lobby/storyActivityUnlockEndingAndReceive',
+                request_serializer=liqi__pb2.ReqStoryActivityUnlockEndingAndReceive.SerializeToString,
+                response_deserializer=liqi__pb2.ResStoryActivityUnlockEndingAndReceive.FromString,
+                _registered_method=True)
+        self.fetchActivityRank = channel.unary_unary(
+                '/lq.Lobby/fetchActivityRank',
+                request_serializer=liqi__pb2.ReqFetchActivityRank.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchActivityRank.FromString,
+                _registered_method=True)
 
 
 class LobbyServicer(object):
@@ -3608,6 +3718,138 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def amuletActivityStartGame(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivityOperate(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivityChangeHands(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivityUpgrade(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivityBuy(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivitySelectPack(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivitySellEffect(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivityEffectSort(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivityGiveup(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivityRefreshShop(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivitySelectFreeEffect(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivityUpgradeShopBuff(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivityEndShopping(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivitySetSkillLevel(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivityMaintainInfo(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def storyActivityUnlock(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def storyActivityUnlockEnding(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def storyActivityReceiveEndingReward(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def storyActivityReceiveFinishReward(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def storyActivityReceiveAllFinishReward(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def storyActivityUnlockEndingAndReceive(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchActivityRank(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LobbyServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -5230,6 +5472,116 @@ def add_LobbyServicer_to_server(servicer, server):
                     servicer.generateContestManagerLoginCode,
                     request_deserializer=liqi__pb2.ReqCommon.FromString,
                     response_serializer=liqi__pb2.ResGenerateContestManagerLoginCode.SerializeToString,
+            ),
+            'amuletActivityStartGame': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivityStartGame,
+                    request_deserializer=liqi__pb2.ReqAmuletActivityStartGame.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivityStartGame.SerializeToString,
+            ),
+            'amuletActivityOperate': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivityOperate,
+                    request_deserializer=liqi__pb2.ReqAmuletActivityOperate.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivityOperate.SerializeToString,
+            ),
+            'amuletActivityChangeHands': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivityChangeHands,
+                    request_deserializer=liqi__pb2.ReqAmuletActivityChangeHands.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivityChangeHands.SerializeToString,
+            ),
+            'amuletActivityUpgrade': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivityUpgrade,
+                    request_deserializer=liqi__pb2.ReqAmuletActivityUpgrade.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivityUpgrade.SerializeToString,
+            ),
+            'amuletActivityBuy': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivityBuy,
+                    request_deserializer=liqi__pb2.ReqAmuletActivityBuy.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivityBuy.SerializeToString,
+            ),
+            'amuletActivitySelectPack': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivitySelectPack,
+                    request_deserializer=liqi__pb2.ReqAmuletActivitySelectPack.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivitySelectPack.SerializeToString,
+            ),
+            'amuletActivitySellEffect': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivitySellEffect,
+                    request_deserializer=liqi__pb2.ReqAmuletActivitySellEffect.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivitySellEffect.SerializeToString,
+            ),
+            'amuletActivityEffectSort': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivityEffectSort,
+                    request_deserializer=liqi__pb2.ReqAmuletActivityEffectSort.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'amuletActivityGiveup': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivityGiveup,
+                    request_deserializer=liqi__pb2.ReqAmuletActivityGiveup.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'amuletActivityRefreshShop': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivityRefreshShop,
+                    request_deserializer=liqi__pb2.ReqAmuletActivityRefreshShop.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivityRefreshShop.SerializeToString,
+            ),
+            'amuletActivitySelectFreeEffect': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivitySelectFreeEffect,
+                    request_deserializer=liqi__pb2.ReqAmuletActivitySelectFreeEffect.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivitySelectFreeEffect.SerializeToString,
+            ),
+            'amuletActivityUpgradeShopBuff': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivityUpgradeShopBuff,
+                    request_deserializer=liqi__pb2.ReqAmuletActivityUpgradeShopBuff.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivityUpgradeShopBuff.SerializeToString,
+            ),
+            'amuletActivityEndShopping': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivityEndShopping,
+                    request_deserializer=liqi__pb2.ReqAmuletActivityEndShopping.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivityEndShopping.SerializeToString,
+            ),
+            'amuletActivitySetSkillLevel': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivitySetSkillLevel,
+                    request_deserializer=liqi__pb2.ReqAmuletActivitySetSkillLevel.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'amuletActivityMaintainInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivityMaintainInfo,
+                    request_deserializer=liqi__pb2.ReqCommon.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivityMaintainInfo.SerializeToString,
+            ),
+            'storyActivityUnlock': grpc.unary_unary_rpc_method_handler(
+                    servicer.storyActivityUnlock,
+                    request_deserializer=liqi__pb2.ReqStoryActivityUnlock.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'storyActivityUnlockEnding': grpc.unary_unary_rpc_method_handler(
+                    servicer.storyActivityUnlockEnding,
+                    request_deserializer=liqi__pb2.ReqStoryActivityUnlockEnding.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'storyActivityReceiveEndingReward': grpc.unary_unary_rpc_method_handler(
+                    servicer.storyActivityReceiveEndingReward,
+                    request_deserializer=liqi__pb2.ReqStoryActivityReceiveEndingReward.FromString,
+                    response_serializer=liqi__pb2.ResStoryReward.SerializeToString,
+            ),
+            'storyActivityReceiveFinishReward': grpc.unary_unary_rpc_method_handler(
+                    servicer.storyActivityReceiveFinishReward,
+                    request_deserializer=liqi__pb2.ReqStoryActivityReceiveFinishReward.FromString,
+                    response_serializer=liqi__pb2.ResStoryReward.SerializeToString,
+            ),
+            'storyActivityReceiveAllFinishReward': grpc.unary_unary_rpc_method_handler(
+                    servicer.storyActivityReceiveAllFinishReward,
+                    request_deserializer=liqi__pb2.ReqStoryActivityReceiveAllFinishReward.FromString,
+                    response_serializer=liqi__pb2.ResStoryReward.SerializeToString,
+            ),
+            'storyActivityUnlockEndingAndReceive': grpc.unary_unary_rpc_method_handler(
+                    servicer.storyActivityUnlockEndingAndReceive,
+                    request_deserializer=liqi__pb2.ReqStoryActivityUnlockEndingAndReceive.FromString,
+                    response_serializer=liqi__pb2.ResStoryActivityUnlockEndingAndReceive.SerializeToString,
+            ),
+            'fetchActivityRank': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchActivityRank,
+                    request_deserializer=liqi__pb2.ReqFetchActivityRank.FromString,
+                    response_serializer=liqi__pb2.ResFetchActivityRank.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -13980,6 +14332,600 @@ class Lobby(object):
             '/lq.Lobby/generateContestManagerLoginCode',
             liqi__pb2.ReqCommon.SerializeToString,
             liqi__pb2.ResGenerateContestManagerLoginCode.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivityStartGame(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivityStartGame',
+            liqi__pb2.ReqAmuletActivityStartGame.SerializeToString,
+            liqi__pb2.ResAmuletActivityStartGame.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivityOperate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivityOperate',
+            liqi__pb2.ReqAmuletActivityOperate.SerializeToString,
+            liqi__pb2.ResAmuletActivityOperate.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivityChangeHands(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivityChangeHands',
+            liqi__pb2.ReqAmuletActivityChangeHands.SerializeToString,
+            liqi__pb2.ResAmuletActivityChangeHands.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivityUpgrade(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivityUpgrade',
+            liqi__pb2.ReqAmuletActivityUpgrade.SerializeToString,
+            liqi__pb2.ResAmuletActivityUpgrade.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivityBuy(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivityBuy',
+            liqi__pb2.ReqAmuletActivityBuy.SerializeToString,
+            liqi__pb2.ResAmuletActivityBuy.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivitySelectPack(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivitySelectPack',
+            liqi__pb2.ReqAmuletActivitySelectPack.SerializeToString,
+            liqi__pb2.ResAmuletActivitySelectPack.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivitySellEffect(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivitySellEffect',
+            liqi__pb2.ReqAmuletActivitySellEffect.SerializeToString,
+            liqi__pb2.ResAmuletActivitySellEffect.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivityEffectSort(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivityEffectSort',
+            liqi__pb2.ReqAmuletActivityEffectSort.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivityGiveup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivityGiveup',
+            liqi__pb2.ReqAmuletActivityGiveup.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivityRefreshShop(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivityRefreshShop',
+            liqi__pb2.ReqAmuletActivityRefreshShop.SerializeToString,
+            liqi__pb2.ResAmuletActivityRefreshShop.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivitySelectFreeEffect(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivitySelectFreeEffect',
+            liqi__pb2.ReqAmuletActivitySelectFreeEffect.SerializeToString,
+            liqi__pb2.ResAmuletActivitySelectFreeEffect.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivityUpgradeShopBuff(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivityUpgradeShopBuff',
+            liqi__pb2.ReqAmuletActivityUpgradeShopBuff.SerializeToString,
+            liqi__pb2.ResAmuletActivityUpgradeShopBuff.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivityEndShopping(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivityEndShopping',
+            liqi__pb2.ReqAmuletActivityEndShopping.SerializeToString,
+            liqi__pb2.ResAmuletActivityEndShopping.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivitySetSkillLevel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivitySetSkillLevel',
+            liqi__pb2.ReqAmuletActivitySetSkillLevel.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivityMaintainInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivityMaintainInfo',
+            liqi__pb2.ReqCommon.SerializeToString,
+            liqi__pb2.ResAmuletActivityMaintainInfo.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def storyActivityUnlock(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/storyActivityUnlock',
+            liqi__pb2.ReqStoryActivityUnlock.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def storyActivityUnlockEnding(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/storyActivityUnlockEnding',
+            liqi__pb2.ReqStoryActivityUnlockEnding.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def storyActivityReceiveEndingReward(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/storyActivityReceiveEndingReward',
+            liqi__pb2.ReqStoryActivityReceiveEndingReward.SerializeToString,
+            liqi__pb2.ResStoryReward.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def storyActivityReceiveFinishReward(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/storyActivityReceiveFinishReward',
+            liqi__pb2.ReqStoryActivityReceiveFinishReward.SerializeToString,
+            liqi__pb2.ResStoryReward.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def storyActivityReceiveAllFinishReward(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/storyActivityReceiveAllFinishReward',
+            liqi__pb2.ReqStoryActivityReceiveAllFinishReward.SerializeToString,
+            liqi__pb2.ResStoryReward.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def storyActivityUnlockEndingAndReceive(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/storyActivityUnlockEndingAndReceive',
+            liqi__pb2.ReqStoryActivityUnlockEndingAndReceive.SerializeToString,
+            liqi__pb2.ResStoryActivityUnlockEndingAndReceive.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchActivityRank(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchActivityRank',
+            liqi__pb2.ReqFetchActivityRank.SerializeToString,
+            liqi__pb2.ResFetchActivityRank.FromString,
             options,
             channel_credentials,
             insecure,
