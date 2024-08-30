@@ -1426,6 +1426,7 @@ message AmuletGameOperation {
 
     uint32 type = 1;
     repeated GangTiles gang = 2;
+    uint32 effect_id = 3;
 
     message GangTiles {
 
@@ -6587,6 +6588,7 @@ message ResAmuletActivitySellEffect {
     Error error = 1;
     uint32 coin = 2;
     repeated AmuletEffectData effect_list = 3;
+    AmuletGameUpdateData game_update = 4;
 }
 
 message ReqAmuletActivityEffectSort {
