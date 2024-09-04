@@ -6589,6 +6589,7 @@ message ResAmuletActivitySellEffect {
     uint32 coin = 2;
     repeated AmuletEffectData effect_list = 3;
     AmuletGameUpdateData game_update = 4;
+    uint32 remain_change_tile_count = 5;
 }
 
 message ReqAmuletActivityEffectSort {

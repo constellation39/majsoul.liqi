@@ -8911,16 +8911,18 @@ class ReqAmuletActivitySellEffect(_message.Message):
     def __init__(self, activity_id: _Optional[int] = ..., id: _Optional[int] = ...) -> None: ...
 
 class ResAmuletActivitySellEffect(_message.Message):
-    __slots__ = ("error", "coin", "effect_list", "game_update")
+    __slots__ = ("error", "coin", "effect_list", "game_update", "remain_change_tile_count")
     ERROR_FIELD_NUMBER: _ClassVar[int]
     COIN_FIELD_NUMBER: _ClassVar[int]
     EFFECT_LIST_FIELD_NUMBER: _ClassVar[int]
     GAME_UPDATE_FIELD_NUMBER: _ClassVar[int]
+    REMAIN_CHANGE_TILE_COUNT_FIELD_NUMBER: _ClassVar[int]
     error: Error
     coin: int
     effect_list: _containers.RepeatedCompositeFieldContainer[AmuletEffectData]
     game_update: AmuletGameUpdateData
-    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., coin: _Optional[int] = ..., effect_list: _Optional[_Iterable[_Union[AmuletEffectData, _Mapping]]] = ..., game_update: _Optional[_Union[AmuletGameUpdateData, _Mapping]] = ...) -> None: ...
+    remain_change_tile_count: int
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., coin: _Optional[int] = ..., effect_list: _Optional[_Iterable[_Union[AmuletEffectData, _Mapping]]] = ..., game_update: _Optional[_Union[AmuletGameUpdateData, _Mapping]] = ..., remain_change_tile_count: _Optional[int] = ...) -> None: ...
 
 class ReqAmuletActivityEffectSort(_message.Message):
     __slots__ = ("activity_id", "sorted_id")
