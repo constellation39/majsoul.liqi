@@ -5092,12 +5092,31 @@ class ResCurrentMatchInfo(_message.Message):
     def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., matches: _Optional[_Iterable[_Union[ResCurrentMatchInfo.CurrentMatchInfo, _Mapping]]] = ...) -> None: ...
 
 class ReqUserComplain(_message.Message):
-    __slots__ = ("target_id", "type")
+    __slots__ = ("target_id", "type", "content", "game_uuid", "round_info")
+    class GameRoundInfo(_message.Message):
+        __slots__ = ("chang", "ju", "ben", "seat", "xun")
+        CHANG_FIELD_NUMBER: _ClassVar[int]
+        JU_FIELD_NUMBER: _ClassVar[int]
+        BEN_FIELD_NUMBER: _ClassVar[int]
+        SEAT_FIELD_NUMBER: _ClassVar[int]
+        XUN_FIELD_NUMBER: _ClassVar[int]
+        chang: int
+        ju: int
+        ben: int
+        seat: int
+        xun: int
+        def __init__(self, chang: _Optional[int] = ..., ju: _Optional[int] = ..., ben: _Optional[int] = ..., seat: _Optional[int] = ..., xun: _Optional[int] = ...) -> None: ...
     TARGET_ID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
+    CONTENT_FIELD_NUMBER: _ClassVar[int]
+    GAME_UUID_FIELD_NUMBER: _ClassVar[int]
+    ROUND_INFO_FIELD_NUMBER: _ClassVar[int]
     target_id: int
     type: int
-    def __init__(self, target_id: _Optional[int] = ..., type: _Optional[int] = ...) -> None: ...
+    content: str
+    game_uuid: str
+    round_info: ReqUserComplain.GameRoundInfo
+    def __init__(self, target_id: _Optional[int] = ..., type: _Optional[int] = ..., content: _Optional[str] = ..., game_uuid: _Optional[str] = ..., round_info: _Optional[_Union[ReqUserComplain.GameRoundInfo, _Mapping]] = ...) -> None: ...
 
 class ReqReadAnnouncement(_message.Message):
     __slots__ = ("announcement_id", "announcement_list")
@@ -6590,7 +6609,7 @@ class ResModNicknameTime(_message.Message):
     def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., last_mod_time: _Optional[int] = ...) -> None: ...
 
 class ResMisc(_message.Message):
-    __slots__ = ("error", "recharged_list", "faiths")
+    __slots__ = ("error", "recharged_list", "faiths", "verified_hidden", "verified_value")
     class MiscFaithData(_message.Message):
         __slots__ = ("faith_id", "count")
         FAITH_ID_FIELD_NUMBER: _ClassVar[int]
@@ -6601,10 +6620,14 @@ class ResMisc(_message.Message):
     ERROR_FIELD_NUMBER: _ClassVar[int]
     RECHARGED_LIST_FIELD_NUMBER: _ClassVar[int]
     FAITHS_FIELD_NUMBER: _ClassVar[int]
+    VERIFIED_HIDDEN_FIELD_NUMBER: _ClassVar[int]
+    VERIFIED_VALUE_FIELD_NUMBER: _ClassVar[int]
     error: Error
     recharged_list: _containers.RepeatedScalarFieldContainer[int]
     faiths: _containers.RepeatedCompositeFieldContainer[ResMisc.MiscFaithData]
-    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., recharged_list: _Optional[_Iterable[int]] = ..., faiths: _Optional[_Iterable[_Union[ResMisc.MiscFaithData, _Mapping]]] = ...) -> None: ...
+    verified_hidden: int
+    verified_value: int
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., recharged_list: _Optional[_Iterable[int]] = ..., faiths: _Optional[_Iterable[_Union[ResMisc.MiscFaithData, _Mapping]]] = ..., verified_hidden: _Optional[int] = ..., verified_value: _Optional[int] = ...) -> None: ...
 
 class ReqModifySignature(_message.Message):
     __slots__ = ("signature",)
@@ -9126,6 +9149,12 @@ class ResFetchActivityRank(_message.Message):
     items: _containers.RepeatedCompositeFieldContainer[ResFetchActivityRank.ActivityRankItem]
     self: ResFetchActivityRank.ActivityRankItem
     def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., items: _Optional[_Iterable[_Union[ResFetchActivityRank.ActivityRankItem, _Mapping]]] = ..., self: _Optional[_Union[ResFetchActivityRank.ActivityRankItem, _Mapping]] = ...) -> None: ...
+
+class ReqSetVerifiedHidden(_message.Message):
+    __slots__ = ("verified_hidden",)
+    VERIFIED_HIDDEN_FIELD_NUMBER: _ClassVar[int]
+    verified_hidden: int
+    def __init__(self, verified_hidden: _Optional[int] = ...) -> None: ...
 
 class ActionMJStart(_message.Message):
     __slots__ = ()
