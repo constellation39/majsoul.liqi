@@ -294,6 +294,16 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqGameRecordList.SerializeToString,
                 response_deserializer=liqi__pb2.ResGameRecordList.FromString,
                 _registered_method=True)
+        self.fetchGameRecordListV2 = channel.unary_unary(
+                '/lq.Lobby/fetchGameRecordListV2',
+                request_serializer=liqi__pb2.ReqGameRecordListV2.SerializeToString,
+                response_deserializer=liqi__pb2.ResGameRecordListV2.FromString,
+                _registered_method=True)
+        self.fetchNextGameRecordList = channel.unary_unary(
+                '/lq.Lobby/fetchNextGameRecordList',
+                request_serializer=liqi__pb2.ReqNextGameRecordList.SerializeToString,
+                response_deserializer=liqi__pb2.ResNextGameRecordList.FromString,
+                _registered_method=True)
         self.fetchCollectedGameRecordList = channel.unary_unary(
                 '/lq.Lobby/fetchCollectedGameRecordList',
                 request_serializer=liqi__pb2.ReqCommon.SerializeToString,
@@ -303,6 +313,11 @@ class LobbyStub(object):
                 '/lq.Lobby/fetchGameRecordsDetail',
                 request_serializer=liqi__pb2.ReqGameRecordsDetail.SerializeToString,
                 response_deserializer=liqi__pb2.ResGameRecordsDetail.FromString,
+                _registered_method=True)
+        self.fetchGameRecordsDetailV2 = channel.unary_unary(
+                '/lq.Lobby/fetchGameRecordsDetailV2',
+                request_serializer=liqi__pb2.ReqGameRecordsDetailV2.SerializeToString,
+                response_deserializer=liqi__pb2.ResGameRecordsDetailV2.FromString,
                 _registered_method=True)
         self.addCollectedGameRecord = channel.unary_unary(
                 '/lq.Lobby/addCollectedGameRecord',
@@ -1769,6 +1784,21 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqSetVerifiedHidden.SerializeToString,
                 response_deserializer=liqi__pb2.ResCommon.FromString,
                 _registered_method=True)
+        self.fetchQuestionnaireList = channel.unary_unary(
+                '/lq.Lobby/fetchQuestionnaireList',
+                request_serializer=liqi__pb2.ReqFetchQuestionnaireList.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchQuestionnaireList.FromString,
+                _registered_method=True)
+        self.fetchQuestionnaireDetail = channel.unary_unary(
+                '/lq.Lobby/fetchQuestionnaireDetail',
+                request_serializer=liqi__pb2.ReqFetchQuestionnaireDetail.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchQuestionnaireDetail.FromString,
+                _registered_method=True)
+        self.submitQuestionnaire = channel.unary_unary(
+                '/lq.Lobby/submitQuestionnaire',
+                request_serializer=liqi__pb2.ReqSubmitQuestionnaire.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
 
 
 class LobbyServicer(object):
@@ -2086,6 +2116,18 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def fetchGameRecordListV2(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchNextGameRecordList(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def fetchCollectedGameRecordList(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2093,6 +2135,12 @@ class LobbyServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def fetchGameRecordsDetail(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchGameRecordsDetailV2(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3856,6 +3904,24 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def fetchQuestionnaireList(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchQuestionnaireDetail(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def submitQuestionnaire(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LobbyServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -4119,6 +4185,16 @@ def add_LobbyServicer_to_server(servicer, server):
                     request_deserializer=liqi__pb2.ReqGameRecordList.FromString,
                     response_serializer=liqi__pb2.ResGameRecordList.SerializeToString,
             ),
+            'fetchGameRecordListV2': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchGameRecordListV2,
+                    request_deserializer=liqi__pb2.ReqGameRecordListV2.FromString,
+                    response_serializer=liqi__pb2.ResGameRecordListV2.SerializeToString,
+            ),
+            'fetchNextGameRecordList': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchNextGameRecordList,
+                    request_deserializer=liqi__pb2.ReqNextGameRecordList.FromString,
+                    response_serializer=liqi__pb2.ResNextGameRecordList.SerializeToString,
+            ),
             'fetchCollectedGameRecordList': grpc.unary_unary_rpc_method_handler(
                     servicer.fetchCollectedGameRecordList,
                     request_deserializer=liqi__pb2.ReqCommon.FromString,
@@ -4128,6 +4204,11 @@ def add_LobbyServicer_to_server(servicer, server):
                     servicer.fetchGameRecordsDetail,
                     request_deserializer=liqi__pb2.ReqGameRecordsDetail.FromString,
                     response_serializer=liqi__pb2.ResGameRecordsDetail.SerializeToString,
+            ),
+            'fetchGameRecordsDetailV2': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchGameRecordsDetailV2,
+                    request_deserializer=liqi__pb2.ReqGameRecordsDetailV2.FromString,
+                    response_serializer=liqi__pb2.ResGameRecordsDetailV2.SerializeToString,
             ),
             'addCollectedGameRecord': grpc.unary_unary_rpc_method_handler(
                     servicer.addCollectedGameRecord,
@@ -5594,6 +5675,21 @@ def add_LobbyServicer_to_server(servicer, server):
                     request_deserializer=liqi__pb2.ReqSetVerifiedHidden.FromString,
                     response_serializer=liqi__pb2.ResCommon.SerializeToString,
             ),
+            'fetchQuestionnaireList': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchQuestionnaireList,
+                    request_deserializer=liqi__pb2.ReqFetchQuestionnaireList.FromString,
+                    response_serializer=liqi__pb2.ResFetchQuestionnaireList.SerializeToString,
+            ),
+            'fetchQuestionnaireDetail': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchQuestionnaireDetail,
+                    request_deserializer=liqi__pb2.ReqFetchQuestionnaireDetail.FromString,
+                    response_serializer=liqi__pb2.ResFetchQuestionnaireDetail.SerializeToString,
+            ),
+            'submitQuestionnaire': grpc.unary_unary_rpc_method_handler(
+                    servicer.submitQuestionnaire,
+                    request_deserializer=liqi__pb2.ReqSubmitQuestionnaire.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
             'lq.Lobby', rpc_method_handlers)
@@ -7010,6 +7106,60 @@ class Lobby(object):
             _registered_method=True)
 
     @staticmethod
+    def fetchGameRecordListV2(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchGameRecordListV2',
+            liqi__pb2.ReqGameRecordListV2.SerializeToString,
+            liqi__pb2.ResGameRecordListV2.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchNextGameRecordList(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchNextGameRecordList',
+            liqi__pb2.ReqNextGameRecordList.SerializeToString,
+            liqi__pb2.ResNextGameRecordList.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
     def fetchCollectedGameRecordList(request,
             target,
             options=(),
@@ -7053,6 +7203,33 @@ class Lobby(object):
             '/lq.Lobby/fetchGameRecordsDetail',
             liqi__pb2.ReqGameRecordsDetail.SerializeToString,
             liqi__pb2.ResGameRecordsDetail.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchGameRecordsDetailV2(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchGameRecordsDetailV2',
+            liqi__pb2.ReqGameRecordsDetailV2.SerializeToString,
+            liqi__pb2.ResGameRecordsDetailV2.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14963,6 +15140,87 @@ class Lobby(object):
             target,
             '/lq.Lobby/setVerifiedHidden',
             liqi__pb2.ReqSetVerifiedHidden.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchQuestionnaireList(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchQuestionnaireList',
+            liqi__pb2.ReqFetchQuestionnaireList.SerializeToString,
+            liqi__pb2.ResFetchQuestionnaireList.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchQuestionnaireDetail(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchQuestionnaireDetail',
+            liqi__pb2.ReqFetchQuestionnaireDetail.SerializeToString,
+            liqi__pb2.ResFetchQuestionnaireDetail.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def submitQuestionnaire(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/submitQuestionnaire',
+            liqi__pb2.ReqSubmitQuestionnaire.SerializeToString,
             liqi__pb2.ResCommon.FromString,
             options,
             channel_credentials,
