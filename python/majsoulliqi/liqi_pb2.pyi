@@ -300,10 +300,12 @@ class NotifyNewComment(_message.Message):
     def __init__(self) -> None: ...
 
 class NotifyRollingNotice(_message.Message):
-    __slots__ = ("notice",)
-    NOTICE_FIELD_NUMBER: _ClassVar[int]
-    notice: _containers.RepeatedCompositeFieldContainer[RollingNotice]
-    def __init__(self, notice: _Optional[_Iterable[_Union[RollingNotice, _Mapping]]] = ...) -> None: ...
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class NotifyMaintainNotice(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
 
 class NotifyGiftSendRefresh(_message.Message):
     __slots__ = ()
@@ -2638,20 +2640,26 @@ class CommentItem(_message.Message):
     def __init__(self, comment_id: _Optional[int] = ..., timestamp: _Optional[int] = ..., commenter: _Optional[_Union[PlayerBaseView, _Mapping]] = ..., content: _Optional[str] = ..., is_banned: _Optional[int] = ...) -> None: ...
 
 class RollingNotice(_message.Message):
-    __slots__ = ("id", "content", "start_time", "end_time", "repeat_interval", "lang")
-    ID_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("content", "start_time", "end_time", "repeat_interval", "repeat_time", "repeat_type")
     CONTENT_FIELD_NUMBER: _ClassVar[int]
     START_TIME_FIELD_NUMBER: _ClassVar[int]
     END_TIME_FIELD_NUMBER: _ClassVar[int]
     REPEAT_INTERVAL_FIELD_NUMBER: _ClassVar[int]
-    LANG_FIELD_NUMBER: _ClassVar[int]
-    id: int
+    REPEAT_TIME_FIELD_NUMBER: _ClassVar[int]
+    REPEAT_TYPE_FIELD_NUMBER: _ClassVar[int]
     content: str
     start_time: int
     end_time: int
     repeat_interval: int
-    lang: str
-    def __init__(self, id: _Optional[int] = ..., content: _Optional[str] = ..., start_time: _Optional[int] = ..., end_time: _Optional[int] = ..., repeat_interval: _Optional[int] = ..., lang: _Optional[str] = ...) -> None: ...
+    repeat_time: _containers.RepeatedScalarFieldContainer[int]
+    repeat_type: int
+    def __init__(self, content: _Optional[str] = ..., start_time: _Optional[int] = ..., end_time: _Optional[int] = ..., repeat_interval: _Optional[int] = ..., repeat_time: _Optional[_Iterable[int]] = ..., repeat_type: _Optional[int] = ...) -> None: ...
+
+class MaintainNotice(_message.Message):
+    __slots__ = ("maintain_time",)
+    MAINTAIN_TIME_FIELD_NUMBER: _ClassVar[int]
+    maintain_time: int
+    def __init__(self, maintain_time: _Optional[int] = ...) -> None: ...
 
 class BillingGoods(_message.Message):
     __slots__ = ("id", "name", "desc", "icon", "resource_id", "resource_count")
@@ -5546,11 +5554,27 @@ class ReqUpdateReadComment(_message.Message):
     read_id: int
     def __init__(self, read_id: _Optional[int] = ...) -> None: ...
 
-class ReqRollingNotice(_message.Message):
-    __slots__ = ("notice",)
+class ResFetchRollingNotice(_message.Message):
+    __slots__ = ("error", "notice")
+    ERROR_FIELD_NUMBER: _ClassVar[int]
     NOTICE_FIELD_NUMBER: _ClassVar[int]
-    notice: _containers.RepeatedCompositeFieldContainer[RollingNotice]
-    def __init__(self, notice: _Optional[_Iterable[_Union[RollingNotice, _Mapping]]] = ...) -> None: ...
+    error: Error
+    notice: RollingNotice
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., notice: _Optional[_Union[RollingNotice, _Mapping]] = ...) -> None: ...
+
+class ResFetchMaintainNotice(_message.Message):
+    __slots__ = ("error", "notice")
+    ERROR_FIELD_NUMBER: _ClassVar[int]
+    NOTICE_FIELD_NUMBER: _ClassVar[int]
+    error: Error
+    notice: MaintainNotice
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., notice: _Optional[_Union[MaintainNotice, _Mapping]] = ...) -> None: ...
+
+class ReqFetchRollingNotice(_message.Message):
+    __slots__ = ("lang",)
+    LANG_FIELD_NUMBER: _ClassVar[int]
+    lang: str
+    def __init__(self, lang: _Optional[str] = ...) -> None: ...
 
 class ResServerTime(_message.Message):
     __slots__ = ("server_time", "error")
@@ -8478,7 +8502,7 @@ class ResFinishCombiningOrder(_message.Message):
     def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., reward_items: _Optional[_Iterable[_Union[ExecuteReward, _Mapping]]] = ...) -> None: ...
 
 class ResFetchInfo(_message.Message):
-    __slots__ = ("error", "server_time", "server_setting", "client_value", "friend_list", "friend_apply_list", "recent_friend", "mail_info", "receive_coin_info", "title_list", "bag_info", "shop_info", "shop_interval", "activity_data", "activity_interval", "activity_buff", "vip_reward", "month_ticket_info", "achievement", "comment_setting", "account_settings", "mod_nickname_time", "misc", "announcement", "rolling_notice", "activity_list", "character_info", "all_common_views", "collected_game_record_list")
+    __slots__ = ("error", "server_time", "server_setting", "client_value", "friend_list", "friend_apply_list", "recent_friend", "mail_info", "receive_coin_info", "title_list", "bag_info", "shop_info", "shop_interval", "activity_data", "activity_interval", "activity_buff", "vip_reward", "month_ticket_info", "achievement", "comment_setting", "account_settings", "mod_nickname_time", "misc", "announcement", "activity_list", "character_info", "all_common_views", "collected_game_record_list", "maintain_notice")
     ERROR_FIELD_NUMBER: _ClassVar[int]
     SERVER_TIME_FIELD_NUMBER: _ClassVar[int]
     SERVER_SETTING_FIELD_NUMBER: _ClassVar[int]
@@ -8503,11 +8527,11 @@ class ResFetchInfo(_message.Message):
     MOD_NICKNAME_TIME_FIELD_NUMBER: _ClassVar[int]
     MISC_FIELD_NUMBER: _ClassVar[int]
     ANNOUNCEMENT_FIELD_NUMBER: _ClassVar[int]
-    ROLLING_NOTICE_FIELD_NUMBER: _ClassVar[int]
     ACTIVITY_LIST_FIELD_NUMBER: _ClassVar[int]
     CHARACTER_INFO_FIELD_NUMBER: _ClassVar[int]
     ALL_COMMON_VIEWS_FIELD_NUMBER: _ClassVar[int]
     COLLECTED_GAME_RECORD_LIST_FIELD_NUMBER: _ClassVar[int]
+    MAINTAIN_NOTICE_FIELD_NUMBER: _ClassVar[int]
     error: Error
     server_time: ResServerTime
     server_setting: ResServerSettings
@@ -8532,12 +8556,12 @@ class ResFetchInfo(_message.Message):
     mod_nickname_time: ResModNicknameTime
     misc: ResMisc
     announcement: ResAnnouncement
-    rolling_notice: ReqRollingNotice
     activity_list: ResActivityList
     character_info: ResCharacterInfo
     all_common_views: ResAllcommonViews
     collected_game_record_list: ResCollectedGameRecordList
-    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., server_time: _Optional[_Union[ResServerTime, _Mapping]] = ..., server_setting: _Optional[_Union[ResServerSettings, _Mapping]] = ..., client_value: _Optional[_Union[ResClientValue, _Mapping]] = ..., friend_list: _Optional[_Union[ResFriendList, _Mapping]] = ..., friend_apply_list: _Optional[_Union[ResFriendApplyList, _Mapping]] = ..., recent_friend: _Optional[_Union[ResFetchrecentFriend, _Mapping]] = ..., mail_info: _Optional[_Union[ResMailInfo, _Mapping]] = ..., receive_coin_info: _Optional[_Union[ResReviveCoinInfo, _Mapping]] = ..., title_list: _Optional[_Union[ResTitleList, _Mapping]] = ..., bag_info: _Optional[_Union[ResBagInfo, _Mapping]] = ..., shop_info: _Optional[_Union[ResShopInfo, _Mapping]] = ..., shop_interval: _Optional[_Union[ResFetchShopInterval, _Mapping]] = ..., activity_data: _Optional[_Union[ResAccountActivityData, _Mapping]] = ..., activity_interval: _Optional[_Union[ResFetchActivityInterval, _Mapping]] = ..., activity_buff: _Optional[_Union[ResActivityBuff, _Mapping]] = ..., vip_reward: _Optional[_Union[ResVipReward, _Mapping]] = ..., month_ticket_info: _Optional[_Union[ResMonthTicketInfo, _Mapping]] = ..., achievement: _Optional[_Union[ResAchievement, _Mapping]] = ..., comment_setting: _Optional[_Union[ResCommentSetting, _Mapping]] = ..., account_settings: _Optional[_Union[ResAccountSettings, _Mapping]] = ..., mod_nickname_time: _Optional[_Union[ResModNicknameTime, _Mapping]] = ..., misc: _Optional[_Union[ResMisc, _Mapping]] = ..., announcement: _Optional[_Union[ResAnnouncement, _Mapping]] = ..., rolling_notice: _Optional[_Union[ReqRollingNotice, _Mapping]] = ..., activity_list: _Optional[_Union[ResActivityList, _Mapping]] = ..., character_info: _Optional[_Union[ResCharacterInfo, _Mapping]] = ..., all_common_views: _Optional[_Union[ResAllcommonViews, _Mapping]] = ..., collected_game_record_list: _Optional[_Union[ResCollectedGameRecordList, _Mapping]] = ...) -> None: ...
+    maintain_notice: ResFetchMaintainNotice
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., server_time: _Optional[_Union[ResServerTime, _Mapping]] = ..., server_setting: _Optional[_Union[ResServerSettings, _Mapping]] = ..., client_value: _Optional[_Union[ResClientValue, _Mapping]] = ..., friend_list: _Optional[_Union[ResFriendList, _Mapping]] = ..., friend_apply_list: _Optional[_Union[ResFriendApplyList, _Mapping]] = ..., recent_friend: _Optional[_Union[ResFetchrecentFriend, _Mapping]] = ..., mail_info: _Optional[_Union[ResMailInfo, _Mapping]] = ..., receive_coin_info: _Optional[_Union[ResReviveCoinInfo, _Mapping]] = ..., title_list: _Optional[_Union[ResTitleList, _Mapping]] = ..., bag_info: _Optional[_Union[ResBagInfo, _Mapping]] = ..., shop_info: _Optional[_Union[ResShopInfo, _Mapping]] = ..., shop_interval: _Optional[_Union[ResFetchShopInterval, _Mapping]] = ..., activity_data: _Optional[_Union[ResAccountActivityData, _Mapping]] = ..., activity_interval: _Optional[_Union[ResFetchActivityInterval, _Mapping]] = ..., activity_buff: _Optional[_Union[ResActivityBuff, _Mapping]] = ..., vip_reward: _Optional[_Union[ResVipReward, _Mapping]] = ..., month_ticket_info: _Optional[_Union[ResMonthTicketInfo, _Mapping]] = ..., achievement: _Optional[_Union[ResAchievement, _Mapping]] = ..., comment_setting: _Optional[_Union[ResCommentSetting, _Mapping]] = ..., account_settings: _Optional[_Union[ResAccountSettings, _Mapping]] = ..., mod_nickname_time: _Optional[_Union[ResModNicknameTime, _Mapping]] = ..., misc: _Optional[_Union[ResMisc, _Mapping]] = ..., announcement: _Optional[_Union[ResAnnouncement, _Mapping]] = ..., activity_list: _Optional[_Union[ResActivityList, _Mapping]] = ..., character_info: _Optional[_Union[ResCharacterInfo, _Mapping]] = ..., all_common_views: _Optional[_Union[ResAllcommonViews, _Mapping]] = ..., collected_game_record_list: _Optional[_Union[ResCollectedGameRecordList, _Mapping]] = ..., maintain_notice: _Optional[_Union[ResFetchMaintainNotice, _Mapping]] = ...) -> None: ...
 
 class ReqUpgradeVillageBuilding(_message.Message):
     __slots__ = ("building_id", "activity_id")

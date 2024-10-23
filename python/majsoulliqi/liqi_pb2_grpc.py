@@ -611,8 +611,13 @@ class LobbyStub(object):
                 _registered_method=True)
         self.fetchRollingNotice = channel.unary_unary(
                 '/lq.Lobby/fetchRollingNotice',
+                request_serializer=liqi__pb2.ReqFetchRollingNotice.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchRollingNotice.FromString,
+                _registered_method=True)
+        self.fetchMaintainNotice = channel.unary_unary(
+                '/lq.Lobby/fetchMaintainNotice',
                 request_serializer=liqi__pb2.ReqCommon.SerializeToString,
-                response_deserializer=liqi__pb2.ReqRollingNotice.FromString,
+                response_deserializer=liqi__pb2.ResFetchMaintainNotice.FromString,
                 _registered_method=True)
         self.fetchServerTime = channel.unary_unary(
                 '/lq.Lobby/fetchServerTime',
@@ -2495,6 +2500,12 @@ class LobbyServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def fetchRollingNotice(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchMaintainNotice(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -4502,8 +4513,13 @@ def add_LobbyServicer_to_server(servicer, server):
             ),
             'fetchRollingNotice': grpc.unary_unary_rpc_method_handler(
                     servicer.fetchRollingNotice,
+                    request_deserializer=liqi__pb2.ReqFetchRollingNotice.FromString,
+                    response_serializer=liqi__pb2.ResFetchRollingNotice.SerializeToString,
+            ),
+            'fetchMaintainNotice': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchMaintainNotice,
                     request_deserializer=liqi__pb2.ReqCommon.FromString,
-                    response_serializer=liqi__pb2.ReqRollingNotice.SerializeToString,
+                    response_serializer=liqi__pb2.ResFetchMaintainNotice.SerializeToString,
             ),
             'fetchServerTime': grpc.unary_unary_rpc_method_handler(
                     servicer.fetchServerTime,
@@ -8821,8 +8837,35 @@ class Lobby(object):
             request,
             target,
             '/lq.Lobby/fetchRollingNotice',
+            liqi__pb2.ReqFetchRollingNotice.SerializeToString,
+            liqi__pb2.ResFetchRollingNotice.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchMaintainNotice(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchMaintainNotice',
             liqi__pb2.ReqCommon.SerializeToString,
-            liqi__pb2.ReqRollingNotice.FromString,
+            liqi__pb2.ResFetchMaintainNotice.FromString,
             options,
             channel_credentials,
             insecure,
