@@ -74,6 +74,11 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqCommon.SerializeToString,
                 response_deserializer=liqi__pb2.ResCommon.FromString,
                 _registered_method=True)
+        self.fetchServerMaintenanceInfo = channel.unary_unary(
+                '/lq.Lobby/fetchServerMaintenanceInfo',
+                request_serializer=liqi__pb2.ReqCommon.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchServerMaintenanceInfo.FromString,
+                _registered_method=True)
         self.emailLogin = channel.unary_unary(
                 '/lq.Lobby/emailLogin',
                 request_serializer=liqi__pb2.ReqEmailLogin.SerializeToString,
@@ -224,14 +229,19 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqRoomStart.SerializeToString,
                 response_deserializer=liqi__pb2.ResCommon.FromString,
                 _registered_method=True)
-        self.kickPlayer = channel.unary_unary(
-                '/lq.Lobby/kickPlayer',
-                request_serializer=liqi__pb2.ReqRoomKick.SerializeToString,
+        self.roomKickPlayer = channel.unary_unary(
+                '/lq.Lobby/roomKickPlayer',
+                request_serializer=liqi__pb2.ReqRoomKickPlayer.SerializeToString,
                 response_deserializer=liqi__pb2.ResCommon.FromString,
                 _registered_method=True)
         self.modifyRoom = channel.unary_unary(
                 '/lq.Lobby/modifyRoom',
                 request_serializer=liqi__pb2.ReqModifyRoom.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.addRoomRobot = channel.unary_unary(
+                '/lq.Lobby/addRoomRobot',
+                request_serializer=liqi__pb2.ReqAddRoomRobot.SerializeToString,
                 response_deserializer=liqi__pb2.ResCommon.FromString,
                 _registered_method=True)
         self.matchGame = channel.unary_unary(
@@ -628,6 +638,16 @@ class LobbyStub(object):
                 '/lq.Lobby/fetchPlatformProducts',
                 request_serializer=liqi__pb2.ReqPlatformBillingProducts.SerializeToString,
                 response_deserializer=liqi__pb2.ResPlatformBillingProducts.FromString,
+                _registered_method=True)
+        self.fetchRandomCharacter = channel.unary_unary(
+                '/lq.Lobby/fetchRandomCharacter',
+                request_serializer=liqi__pb2.ReqCommon.SerializeToString,
+                response_deserializer=liqi__pb2.ResRandomCharacter.FromString,
+                _registered_method=True)
+        self.setRandomCharacter = channel.unary_unary(
+                '/lq.Lobby/setRandomCharacter',
+                request_serializer=liqi__pb2.ReqRandomCharacter.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
                 _registered_method=True)
         self.cancelGooglePlayOrder = channel.unary_unary(
                 '/lq.Lobby/cancelGooglePlayOrder',
@@ -1857,6 +1877,12 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def fetchServerMaintenanceInfo(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def emailLogin(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2037,13 +2063,19 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def kickPlayer(self, request, context):
+    def roomKickPlayer(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def modifyRoom(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def addRoomRobot(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2518,6 +2550,18 @@ class LobbyServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def fetchPlatformProducts(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchRandomCharacter(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def setRandomCharacter(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3976,6 +4020,11 @@ def add_LobbyServicer_to_server(servicer, server):
                     request_deserializer=liqi__pb2.ReqCommon.FromString,
                     response_serializer=liqi__pb2.ResCommon.SerializeToString,
             ),
+            'fetchServerMaintenanceInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchServerMaintenanceInfo,
+                    request_deserializer=liqi__pb2.ReqCommon.FromString,
+                    response_serializer=liqi__pb2.ResFetchServerMaintenanceInfo.SerializeToString,
+            ),
             'emailLogin': grpc.unary_unary_rpc_method_handler(
                     servicer.emailLogin,
                     request_deserializer=liqi__pb2.ReqEmailLogin.FromString,
@@ -4126,14 +4175,19 @@ def add_LobbyServicer_to_server(servicer, server):
                     request_deserializer=liqi__pb2.ReqRoomStart.FromString,
                     response_serializer=liqi__pb2.ResCommon.SerializeToString,
             ),
-            'kickPlayer': grpc.unary_unary_rpc_method_handler(
-                    servicer.kickPlayer,
-                    request_deserializer=liqi__pb2.ReqRoomKick.FromString,
+            'roomKickPlayer': grpc.unary_unary_rpc_method_handler(
+                    servicer.roomKickPlayer,
+                    request_deserializer=liqi__pb2.ReqRoomKickPlayer.FromString,
                     response_serializer=liqi__pb2.ResCommon.SerializeToString,
             ),
             'modifyRoom': grpc.unary_unary_rpc_method_handler(
                     servicer.modifyRoom,
                     request_deserializer=liqi__pb2.ReqModifyRoom.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'addRoomRobot': grpc.unary_unary_rpc_method_handler(
+                    servicer.addRoomRobot,
+                    request_deserializer=liqi__pb2.ReqAddRoomRobot.FromString,
                     response_serializer=liqi__pb2.ResCommon.SerializeToString,
             ),
             'matchGame': grpc.unary_unary_rpc_method_handler(
@@ -4530,6 +4584,16 @@ def add_LobbyServicer_to_server(servicer, server):
                     servicer.fetchPlatformProducts,
                     request_deserializer=liqi__pb2.ReqPlatformBillingProducts.FromString,
                     response_serializer=liqi__pb2.ResPlatformBillingProducts.SerializeToString,
+            ),
+            'fetchRandomCharacter': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchRandomCharacter,
+                    request_deserializer=liqi__pb2.ReqCommon.FromString,
+                    response_serializer=liqi__pb2.ResRandomCharacter.SerializeToString,
+            ),
+            'setRandomCharacter': grpc.unary_unary_rpc_method_handler(
+                    servicer.setRandomCharacter,
+                    request_deserializer=liqi__pb2.ReqRandomCharacter.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
             ),
             'cancelGooglePlayOrder': grpc.unary_unary_rpc_method_handler(
                     servicer.cancelGooglePlayOrder,
@@ -5934,6 +5998,33 @@ class Lobby(object):
             _registered_method=True)
 
     @staticmethod
+    def fetchServerMaintenanceInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchServerMaintenanceInfo',
+            liqi__pb2.ReqCommon.SerializeToString,
+            liqi__pb2.ResFetchServerMaintenanceInfo.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
     def emailLogin(request,
             target,
             options=(),
@@ -6744,7 +6835,7 @@ class Lobby(object):
             _registered_method=True)
 
     @staticmethod
-    def kickPlayer(request,
+    def roomKickPlayer(request,
             target,
             options=(),
             channel_credentials=None,
@@ -6757,8 +6848,8 @@ class Lobby(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/lq.Lobby/kickPlayer',
-            liqi__pb2.ReqRoomKick.SerializeToString,
+            '/lq.Lobby/roomKickPlayer',
+            liqi__pb2.ReqRoomKickPlayer.SerializeToString,
             liqi__pb2.ResCommon.FromString,
             options,
             channel_credentials,
@@ -6786,6 +6877,33 @@ class Lobby(object):
             target,
             '/lq.Lobby/modifyRoom',
             liqi__pb2.ReqModifyRoom.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def addRoomRobot(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/addRoomRobot',
+            liqi__pb2.ReqAddRoomRobot.SerializeToString,
             liqi__pb2.ResCommon.FromString,
             options,
             channel_credentials,
@@ -8920,6 +9038,60 @@ class Lobby(object):
             '/lq.Lobby/fetchPlatformProducts',
             liqi__pb2.ReqPlatformBillingProducts.SerializeToString,
             liqi__pb2.ResPlatformBillingProducts.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchRandomCharacter(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchRandomCharacter',
+            liqi__pb2.ReqCommon.SerializeToString,
+            liqi__pb2.ResRandomCharacter.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def setRandomCharacter(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/setRandomCharacter',
+            liqi__pb2.ReqRandomCharacter.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
             options,
             channel_credentials,
             insecure,
