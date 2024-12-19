@@ -1189,6 +1189,11 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqCompleteActivityTask.SerializeToString,
                 response_deserializer=liqi__pb2.ResCommon.FromString,
                 _registered_method=True)
+        self.completeRandomActivityTaskBatch = channel.unary_unary(
+                '/lq.Lobby/completeRandomActivityTaskBatch',
+                request_serializer=liqi__pb2.ReqCompleteActivityTaskBatch.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
         self.receiveActivityFlipTask = channel.unary_unary(
                 '/lq.Lobby/receiveActivityFlipTask',
                 request_serializer=liqi__pb2.ReqReceiveActivityFlipTask.SerializeToString,
@@ -1822,6 +1827,26 @@ class LobbyStub(object):
         self.submitQuestionnaire = channel.unary_unary(
                 '/lq.Lobby/submitQuestionnaire',
                 request_serializer=liqi__pb2.ReqSubmitQuestionnaire.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.setFriendRoomRandomBotChar = channel.unary_unary(
+                '/lq.Lobby/setFriendRoomRandomBotChar',
+                request_serializer=liqi__pb2.ReqSetFriendRoomRandomBotChar.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.fetchAccountGameHuRecords = channel.unary_unary(
+                '/lq.Lobby/fetchAccountGameHuRecords',
+                request_serializer=liqi__pb2.ReqFetchAccountGameHuRecords.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchAccountGameHuRecords.FromString,
+                _registered_method=True)
+        self.fetchAccountInfoExtra = channel.unary_unary(
+                '/lq.Lobby/fetchAccountInfoExtra',
+                request_serializer=liqi__pb2.ReqFetchAccountInfoExtra.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchAccountInfoExtra.FromString,
+                _registered_method=True)
+        self.setAccountFavoriteHu = channel.unary_unary(
+                '/lq.Lobby/setAccountFavoriteHu',
+                request_serializer=liqi__pb2.ReqSetAccountFavoriteHu.SerializeToString,
                 response_deserializer=liqi__pb2.ResCommon.FromString,
                 _registered_method=True)
 
@@ -3215,6 +3240,12 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def completeRandomActivityTaskBatch(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def receiveActivityFlipTask(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -3972,6 +4003,30 @@ class LobbyServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def submitQuestionnaire(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def setFriendRoomRandomBotChar(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchAccountGameHuRecords(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchAccountInfoExtra(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def setAccountFavoriteHu(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -5135,6 +5190,11 @@ def add_LobbyServicer_to_server(servicer, server):
                     request_deserializer=liqi__pb2.ReqCompleteActivityTask.FromString,
                     response_serializer=liqi__pb2.ResCommon.SerializeToString,
             ),
+            'completeRandomActivityTaskBatch': grpc.unary_unary_rpc_method_handler(
+                    servicer.completeRandomActivityTaskBatch,
+                    request_deserializer=liqi__pb2.ReqCompleteActivityTaskBatch.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
             'receiveActivityFlipTask': grpc.unary_unary_rpc_method_handler(
                     servicer.receiveActivityFlipTask,
                     request_deserializer=liqi__pb2.ReqReceiveActivityFlipTask.FromString,
@@ -5768,6 +5828,26 @@ def add_LobbyServicer_to_server(servicer, server):
             'submitQuestionnaire': grpc.unary_unary_rpc_method_handler(
                     servicer.submitQuestionnaire,
                     request_deserializer=liqi__pb2.ReqSubmitQuestionnaire.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'setFriendRoomRandomBotChar': grpc.unary_unary_rpc_method_handler(
+                    servicer.setFriendRoomRandomBotChar,
+                    request_deserializer=liqi__pb2.ReqSetFriendRoomRandomBotChar.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'fetchAccountGameHuRecords': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchAccountGameHuRecords,
+                    request_deserializer=liqi__pb2.ReqFetchAccountGameHuRecords.FromString,
+                    response_serializer=liqi__pb2.ResFetchAccountGameHuRecords.SerializeToString,
+            ),
+            'fetchAccountInfoExtra': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchAccountInfoExtra,
+                    request_deserializer=liqi__pb2.ReqFetchAccountInfoExtra.FromString,
+                    response_serializer=liqi__pb2.ResFetchAccountInfoExtra.SerializeToString,
+            ),
+            'setAccountFavoriteHu': grpc.unary_unary_rpc_method_handler(
+                    servicer.setAccountFavoriteHu,
+                    request_deserializer=liqi__pb2.ReqSetAccountFavoriteHu.FromString,
                     response_serializer=liqi__pb2.ResCommon.SerializeToString,
             ),
     }
@@ -12019,6 +12099,33 @@ class Lobby(object):
             _registered_method=True)
 
     @staticmethod
+    def completeRandomActivityTaskBatch(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/completeRandomActivityTaskBatch',
+            liqi__pb2.ReqCompleteActivityTaskBatch.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
     def receiveActivityFlipTask(request,
             target,
             options=(),
@@ -15436,6 +15543,114 @@ class Lobby(object):
             target,
             '/lq.Lobby/submitQuestionnaire',
             liqi__pb2.ReqSubmitQuestionnaire.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def setFriendRoomRandomBotChar(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/setFriendRoomRandomBotChar',
+            liqi__pb2.ReqSetFriendRoomRandomBotChar.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchAccountGameHuRecords(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchAccountGameHuRecords',
+            liqi__pb2.ReqFetchAccountGameHuRecords.SerializeToString,
+            liqi__pb2.ResFetchAccountGameHuRecords.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchAccountInfoExtra(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchAccountInfoExtra',
+            liqi__pb2.ReqFetchAccountInfoExtra.SerializeToString,
+            liqi__pb2.ResFetchAccountInfoExtra.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def setAccountFavoriteHu(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/setAccountFavoriteHu',
+            liqi__pb2.ReqSetAccountFavoriteHu.SerializeToString,
             liqi__pb2.ResCommon.FromString,
             options,
             channel_credentials,
