@@ -1699,6 +1699,16 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqCommon.SerializeToString,
                 response_deserializer=liqi__pb2.ResGenerateContestManagerLoginCode.FromString,
                 _registered_method=True)
+        self.amuletActivityFetchInfo = channel.unary_unary(
+                '/lq.Lobby/amuletActivityFetchInfo',
+                request_serializer=liqi__pb2.ReqAmuletActivityFetchInfo.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivityFetchInfo.FromString,
+                _registered_method=True)
+        self.amuletActivityFetchBrief = channel.unary_unary(
+                '/lq.Lobby/amuletActivityFetchBrief',
+                request_serializer=liqi__pb2.ReqAmuletActivityFetchBrief.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivityFetchBrief.FromString,
+                _registered_method=True)
         self.amuletActivityStartGame = channel.unary_unary(
                 '/lq.Lobby/amuletActivityStartGame',
                 request_serializer=liqi__pb2.ReqAmuletActivityStartGame.SerializeToString,
@@ -1774,6 +1784,16 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqCommon.SerializeToString,
                 response_deserializer=liqi__pb2.ResAmuletActivityMaintainInfo.FromString,
                 _registered_method=True)
+        self.amuletActivitySelectRewardPack = channel.unary_unary(
+                '/lq.Lobby/amuletActivitySelectRewardPack',
+                request_serializer=liqi__pb2.ReqAmuletActivitySelectRewardPack.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivitySelectRewardPack.FromString,
+                _registered_method=True)
+        self.amuletActivityReceiveTaskReward = channel.unary_unary(
+                '/lq.Lobby/amuletActivityReceiveTaskReward',
+                request_serializer=liqi__pb2.ReqAmuletActivityReceiveTaskReward.SerializeToString,
+                response_deserializer=liqi__pb2.ResAmuletActivityReceiveTaskReward.FromString,
+                _registered_method=True)
         self.storyActivityUnlock = channel.unary_unary(
                 '/lq.Lobby/storyActivityUnlock',
                 request_serializer=liqi__pb2.ReqStoryActivityUnlock.SerializeToString,
@@ -1848,6 +1868,31 @@ class LobbyStub(object):
                 '/lq.Lobby/setAccountFavoriteHu',
                 request_serializer=liqi__pb2.ReqSetAccountFavoriteHu.SerializeToString,
                 response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.fetchSeerReport = channel.unary_unary(
+                '/lq.Lobby/fetchSeerReport',
+                request_serializer=liqi__pb2.ReqFetchSeerReport.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchSeerReport.FromString,
+                _registered_method=True)
+        self.createSeerReport = channel.unary_unary(
+                '/lq.Lobby/createSeerReport',
+                request_serializer=liqi__pb2.ReqCreateSeerReport.SerializeToString,
+                response_deserializer=liqi__pb2.ResCreateSeerReport.FromString,
+                _registered_method=True)
+        self.fetchSeerReportList = channel.unary_unary(
+                '/lq.Lobby/fetchSeerReportList',
+                request_serializer=liqi__pb2.ReqCommon.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchSeerReportList.FromString,
+                _registered_method=True)
+        self.fetchSeerInfo = channel.unary_unary(
+                '/lq.Lobby/fetchSeerInfo',
+                request_serializer=liqi__pb2.ReqCommon.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchSeerInfo.FromString,
+                _registered_method=True)
+        self.selectChestChooseUpActivity = channel.unary_unary(
+                '/lq.Lobby/selectChestChooseUpActivity',
+                request_serializer=liqi__pb2.ReqSelectChestChooseUp.SerializeToString,
+                response_deserializer=liqi__pb2.ReqCommon.FromString,
                 _registered_method=True)
 
 
@@ -3852,6 +3897,18 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def amuletActivityFetchInfo(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivityFetchBrief(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def amuletActivityStartGame(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -3942,6 +3999,18 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def amuletActivitySelectRewardPack(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def amuletActivityReceiveTaskReward(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def storyActivityUnlock(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -4027,6 +4096,36 @@ class LobbyServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def setAccountFavoriteHu(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchSeerReport(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def createSeerReport(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchSeerReportList(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchSeerInfo(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def selectChestChooseUpActivity(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -5700,6 +5799,16 @@ def add_LobbyServicer_to_server(servicer, server):
                     request_deserializer=liqi__pb2.ReqCommon.FromString,
                     response_serializer=liqi__pb2.ResGenerateContestManagerLoginCode.SerializeToString,
             ),
+            'amuletActivityFetchInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivityFetchInfo,
+                    request_deserializer=liqi__pb2.ReqAmuletActivityFetchInfo.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivityFetchInfo.SerializeToString,
+            ),
+            'amuletActivityFetchBrief': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivityFetchBrief,
+                    request_deserializer=liqi__pb2.ReqAmuletActivityFetchBrief.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivityFetchBrief.SerializeToString,
+            ),
             'amuletActivityStartGame': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivityStartGame,
                     request_deserializer=liqi__pb2.ReqAmuletActivityStartGame.FromString,
@@ -5775,6 +5884,16 @@ def add_LobbyServicer_to_server(servicer, server):
                     request_deserializer=liqi__pb2.ReqCommon.FromString,
                     response_serializer=liqi__pb2.ResAmuletActivityMaintainInfo.SerializeToString,
             ),
+            'amuletActivitySelectRewardPack': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivitySelectRewardPack,
+                    request_deserializer=liqi__pb2.ReqAmuletActivitySelectRewardPack.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivitySelectRewardPack.SerializeToString,
+            ),
+            'amuletActivityReceiveTaskReward': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivityReceiveTaskReward,
+                    request_deserializer=liqi__pb2.ReqAmuletActivityReceiveTaskReward.FromString,
+                    response_serializer=liqi__pb2.ResAmuletActivityReceiveTaskReward.SerializeToString,
+            ),
             'storyActivityUnlock': grpc.unary_unary_rpc_method_handler(
                     servicer.storyActivityUnlock,
                     request_deserializer=liqi__pb2.ReqStoryActivityUnlock.FromString,
@@ -5849,6 +5968,31 @@ def add_LobbyServicer_to_server(servicer, server):
                     servicer.setAccountFavoriteHu,
                     request_deserializer=liqi__pb2.ReqSetAccountFavoriteHu.FromString,
                     response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'fetchSeerReport': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchSeerReport,
+                    request_deserializer=liqi__pb2.ReqFetchSeerReport.FromString,
+                    response_serializer=liqi__pb2.ResFetchSeerReport.SerializeToString,
+            ),
+            'createSeerReport': grpc.unary_unary_rpc_method_handler(
+                    servicer.createSeerReport,
+                    request_deserializer=liqi__pb2.ReqCreateSeerReport.FromString,
+                    response_serializer=liqi__pb2.ResCreateSeerReport.SerializeToString,
+            ),
+            'fetchSeerReportList': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchSeerReportList,
+                    request_deserializer=liqi__pb2.ReqCommon.FromString,
+                    response_serializer=liqi__pb2.ResFetchSeerReportList.SerializeToString,
+            ),
+            'fetchSeerInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchSeerInfo,
+                    request_deserializer=liqi__pb2.ReqCommon.FromString,
+                    response_serializer=liqi__pb2.ResFetchSeerInfo.SerializeToString,
+            ),
+            'selectChestChooseUpActivity': grpc.unary_unary_rpc_method_handler(
+                    servicer.selectChestChooseUpActivity,
+                    request_deserializer=liqi__pb2.ReqSelectChestChooseUp.FromString,
+                    response_serializer=liqi__pb2.ReqCommon.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -14853,6 +14997,60 @@ class Lobby(object):
             _registered_method=True)
 
     @staticmethod
+    def amuletActivityFetchInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivityFetchInfo',
+            liqi__pb2.ReqAmuletActivityFetchInfo.SerializeToString,
+            liqi__pb2.ResAmuletActivityFetchInfo.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivityFetchBrief(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivityFetchBrief',
+            liqi__pb2.ReqAmuletActivityFetchBrief.SerializeToString,
+            liqi__pb2.ResAmuletActivityFetchBrief.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
     def amuletActivityStartGame(request,
             target,
             options=(),
@@ -15258,6 +15456,60 @@ class Lobby(object):
             _registered_method=True)
 
     @staticmethod
+    def amuletActivitySelectRewardPack(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivitySelectRewardPack',
+            liqi__pb2.ReqAmuletActivitySelectRewardPack.SerializeToString,
+            liqi__pb2.ResAmuletActivitySelectRewardPack.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def amuletActivityReceiveTaskReward(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/amuletActivityReceiveTaskReward',
+            liqi__pb2.ReqAmuletActivityReceiveTaskReward.SerializeToString,
+            liqi__pb2.ResAmuletActivityReceiveTaskReward.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
     def storyActivityUnlock(request,
             target,
             options=(),
@@ -15652,6 +15904,141 @@ class Lobby(object):
             '/lq.Lobby/setAccountFavoriteHu',
             liqi__pb2.ReqSetAccountFavoriteHu.SerializeToString,
             liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchSeerReport(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchSeerReport',
+            liqi__pb2.ReqFetchSeerReport.SerializeToString,
+            liqi__pb2.ResFetchSeerReport.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def createSeerReport(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/createSeerReport',
+            liqi__pb2.ReqCreateSeerReport.SerializeToString,
+            liqi__pb2.ResCreateSeerReport.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchSeerReportList(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchSeerReportList',
+            liqi__pb2.ReqCommon.SerializeToString,
+            liqi__pb2.ResFetchSeerReportList.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchSeerInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchSeerInfo',
+            liqi__pb2.ReqCommon.SerializeToString,
+            liqi__pb2.ResFetchSeerInfo.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def selectChestChooseUpActivity(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/selectChestChooseUpActivity',
+            liqi__pb2.ReqSelectChestChooseUp.SerializeToString,
+            liqi__pb2.ReqCommon.FromString,
             options,
             channel_credentials,
             insecure,
