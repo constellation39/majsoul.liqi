@@ -4427,16 +4427,18 @@ class SeerScore(_message.Message):
     def __init__(self, seat: _Optional[int] = ..., rating: _Optional[int] = ...) -> None: ...
 
 class SeerBrief(_message.Message):
-    __slots__ = ("uuid", "state", "expire_time", "player_scores")
+    __slots__ = ("uuid", "state", "expire_time", "player_scores", "create_time")
     UUID_FIELD_NUMBER: _ClassVar[int]
     STATE_FIELD_NUMBER: _ClassVar[int]
     EXPIRE_TIME_FIELD_NUMBER: _ClassVar[int]
     PLAYER_SCORES_FIELD_NUMBER: _ClassVar[int]
+    CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
     uuid: str
     state: int
     expire_time: int
     player_scores: _containers.RepeatedCompositeFieldContainer[SeerScore]
-    def __init__(self, uuid: _Optional[str] = ..., state: _Optional[int] = ..., expire_time: _Optional[int] = ..., player_scores: _Optional[_Iterable[_Union[SeerScore, _Mapping]]] = ...) -> None: ...
+    create_time: int
+    def __init__(self, uuid: _Optional[str] = ..., state: _Optional[int] = ..., expire_time: _Optional[int] = ..., player_scores: _Optional[_Iterable[_Union[SeerScore, _Mapping]]] = ..., create_time: _Optional[int] = ...) -> None: ...
 
 class ResConnectionInfo(_message.Message):
     __slots__ = ("error", "client_endpoint")
@@ -8845,12 +8847,16 @@ class ResFetchInfo(_message.Message):
     def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., server_time: _Optional[_Union[ResServerTime, _Mapping]] = ..., server_setting: _Optional[_Union[ResServerSettings, _Mapping]] = ..., client_value: _Optional[_Union[ResClientValue, _Mapping]] = ..., friend_list: _Optional[_Union[ResFriendList, _Mapping]] = ..., friend_apply_list: _Optional[_Union[ResFriendApplyList, _Mapping]] = ..., recent_friend: _Optional[_Union[ResFetchrecentFriend, _Mapping]] = ..., mail_info: _Optional[_Union[ResMailInfo, _Mapping]] = ..., receive_coin_info: _Optional[_Union[ResReviveCoinInfo, _Mapping]] = ..., title_list: _Optional[_Union[ResTitleList, _Mapping]] = ..., bag_info: _Optional[_Union[ResBagInfo, _Mapping]] = ..., shop_info: _Optional[_Union[ResShopInfo, _Mapping]] = ..., shop_interval: _Optional[_Union[ResFetchShopInterval, _Mapping]] = ..., activity_data: _Optional[_Union[ResAccountActivityData, _Mapping]] = ..., activity_interval: _Optional[_Union[ResFetchActivityInterval, _Mapping]] = ..., activity_buff: _Optional[_Union[ResActivityBuff, _Mapping]] = ..., vip_reward: _Optional[_Union[ResVipReward, _Mapping]] = ..., month_ticket_info: _Optional[_Union[ResMonthTicketInfo, _Mapping]] = ..., achievement: _Optional[_Union[ResAchievement, _Mapping]] = ..., comment_setting: _Optional[_Union[ResCommentSetting, _Mapping]] = ..., account_settings: _Optional[_Union[ResAccountSettings, _Mapping]] = ..., mod_nickname_time: _Optional[_Union[ResModNicknameTime, _Mapping]] = ..., misc: _Optional[_Union[ResMisc, _Mapping]] = ..., announcement: _Optional[_Union[ResAnnouncement, _Mapping]] = ..., activity_list: _Optional[_Union[ResActivityList, _Mapping]] = ..., character_info: _Optional[_Union[ResCharacterInfo, _Mapping]] = ..., all_common_views: _Optional[_Union[ResAllcommonViews, _Mapping]] = ..., collected_game_record_list: _Optional[_Union[ResCollectedGameRecordList, _Mapping]] = ..., maintain_notice: _Optional[_Union[ResFetchMaintainNotice, _Mapping]] = ..., random_character: _Optional[_Union[ResRandomCharacter, _Mapping]] = ..., maintenance_info: _Optional[_Union[ResFetchServerMaintenanceInfo, _Mapping]] = ..., seer_info: _Optional[_Union[ResFetchSeerInfo, _Mapping]] = ...) -> None: ...
 
 class ResFetchSeerInfo(_message.Message):
-    __slots__ = ("error", "remain_count")
+    __slots__ = ("error", "remain_count", "date_limit", "expire_time")
     ERROR_FIELD_NUMBER: _ClassVar[int]
     REMAIN_COUNT_FIELD_NUMBER: _ClassVar[int]
+    DATE_LIMIT_FIELD_NUMBER: _ClassVar[int]
+    EXPIRE_TIME_FIELD_NUMBER: _ClassVar[int]
     error: Error
     remain_count: int
-    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., remain_count: _Optional[int] = ...) -> None: ...
+    date_limit: int
+    expire_time: int
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., remain_count: _Optional[int] = ..., date_limit: _Optional[int] = ..., expire_time: _Optional[int] = ...) -> None: ...
 
 class ResFetchServerMaintenanceInfo(_message.Message):
     __slots__ = ("function_maintenance",)
