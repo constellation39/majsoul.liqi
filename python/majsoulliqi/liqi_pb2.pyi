@@ -6805,7 +6805,7 @@ class ResDoActivitySignIn(_message.Message):
     def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., rewards: _Optional[_Iterable[_Union[ResDoActivitySignIn.RewardData, _Mapping]]] = ..., sign_in_count: _Optional[int] = ...) -> None: ...
 
 class ResCharacterInfo(_message.Message):
-    __slots__ = ("error", "characters", "skins", "main_character_id", "send_gift_count", "send_gift_limit", "finished_endings", "rewarded_endings", "character_sort", "hidden_characters")
+    __slots__ = ("error", "characters", "skins", "main_character_id", "send_gift_count", "send_gift_limit", "finished_endings", "rewarded_endings", "character_sort", "hidden_characters", "other_character_sort")
     ERROR_FIELD_NUMBER: _ClassVar[int]
     CHARACTERS_FIELD_NUMBER: _ClassVar[int]
     SKINS_FIELD_NUMBER: _ClassVar[int]
@@ -6816,6 +6816,7 @@ class ResCharacterInfo(_message.Message):
     REWARDED_ENDINGS_FIELD_NUMBER: _ClassVar[int]
     CHARACTER_SORT_FIELD_NUMBER: _ClassVar[int]
     HIDDEN_CHARACTERS_FIELD_NUMBER: _ClassVar[int]
+    OTHER_CHARACTER_SORT_FIELD_NUMBER: _ClassVar[int]
     error: Error
     characters: _containers.RepeatedCompositeFieldContainer[Character]
     skins: _containers.RepeatedScalarFieldContainer[int]
@@ -6826,13 +6827,18 @@ class ResCharacterInfo(_message.Message):
     rewarded_endings: _containers.RepeatedScalarFieldContainer[int]
     character_sort: _containers.RepeatedScalarFieldContainer[int]
     hidden_characters: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., characters: _Optional[_Iterable[_Union[Character, _Mapping]]] = ..., skins: _Optional[_Iterable[int]] = ..., main_character_id: _Optional[int] = ..., send_gift_count: _Optional[int] = ..., send_gift_limit: _Optional[int] = ..., finished_endings: _Optional[_Iterable[int]] = ..., rewarded_endings: _Optional[_Iterable[int]] = ..., character_sort: _Optional[_Iterable[int]] = ..., hidden_characters: _Optional[_Iterable[int]] = ...) -> None: ...
+    other_character_sort: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., characters: _Optional[_Iterable[_Union[Character, _Mapping]]] = ..., skins: _Optional[_Iterable[int]] = ..., main_character_id: _Optional[int] = ..., send_gift_count: _Optional[int] = ..., send_gift_limit: _Optional[int] = ..., finished_endings: _Optional[_Iterable[int]] = ..., rewarded_endings: _Optional[_Iterable[int]] = ..., character_sort: _Optional[_Iterable[int]] = ..., hidden_characters: _Optional[_Iterable[int]] = ..., other_character_sort: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class ReqUpdateCharacterSort(_message.Message):
-    __slots__ = ("sort",)
+    __slots__ = ("sort", "other_sort", "hidden_characters")
     SORT_FIELD_NUMBER: _ClassVar[int]
+    OTHER_SORT_FIELD_NUMBER: _ClassVar[int]
+    HIDDEN_CHARACTERS_FIELD_NUMBER: _ClassVar[int]
     sort: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, sort: _Optional[_Iterable[int]] = ...) -> None: ...
+    other_sort: _containers.RepeatedScalarFieldContainer[int]
+    hidden_characters: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, sort: _Optional[_Iterable[int]] = ..., other_sort: _Optional[_Iterable[int]] = ..., hidden_characters: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class ReqChangeMainCharacter(_message.Message):
     __slots__ = ("character_id",)
@@ -6934,14 +6940,16 @@ class ReqChangeCommonView(_message.Message):
     def __init__(self, slot: _Optional[int] = ..., value: _Optional[int] = ...) -> None: ...
 
 class ReqSaveCommonViews(_message.Message):
-    __slots__ = ("views", "save_index", "is_use")
+    __slots__ = ("views", "save_index", "is_use", "name")
     VIEWS_FIELD_NUMBER: _ClassVar[int]
     SAVE_INDEX_FIELD_NUMBER: _ClassVar[int]
     IS_USE_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
     views: _containers.RepeatedCompositeFieldContainer[ViewSlot]
     save_index: int
     is_use: int
-    def __init__(self, views: _Optional[_Iterable[_Union[ViewSlot, _Mapping]]] = ..., save_index: _Optional[int] = ..., is_use: _Optional[int] = ...) -> None: ...
+    name: str
+    def __init__(self, views: _Optional[_Iterable[_Union[ViewSlot, _Mapping]]] = ..., save_index: _Optional[int] = ..., is_use: _Optional[int] = ..., name: _Optional[str] = ...) -> None: ...
 
 class ReqCommonViews(_message.Message):
     __slots__ = ("index",)
@@ -6950,22 +6958,26 @@ class ReqCommonViews(_message.Message):
     def __init__(self, index: _Optional[int] = ...) -> None: ...
 
 class ResCommonViews(_message.Message):
-    __slots__ = ("error", "views")
+    __slots__ = ("error", "views", "name")
     ERROR_FIELD_NUMBER: _ClassVar[int]
     VIEWS_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
     error: Error
     views: _containers.RepeatedCompositeFieldContainer[ViewSlot]
-    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., views: _Optional[_Iterable[_Union[ViewSlot, _Mapping]]] = ...) -> None: ...
+    name: str
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., views: _Optional[_Iterable[_Union[ViewSlot, _Mapping]]] = ..., name: _Optional[str] = ...) -> None: ...
 
 class ResAllcommonViews(_message.Message):
     __slots__ = ("views", "use", "error")
     class Views(_message.Message):
-        __slots__ = ("values", "index")
+        __slots__ = ("values", "index", "name")
         VALUES_FIELD_NUMBER: _ClassVar[int]
         INDEX_FIELD_NUMBER: _ClassVar[int]
+        NAME_FIELD_NUMBER: _ClassVar[int]
         values: _containers.RepeatedCompositeFieldContainer[ViewSlot]
         index: int
-        def __init__(self, values: _Optional[_Iterable[_Union[ViewSlot, _Mapping]]] = ..., index: _Optional[int] = ...) -> None: ...
+        name: str
+        def __init__(self, values: _Optional[_Iterable[_Union[ViewSlot, _Mapping]]] = ..., index: _Optional[int] = ..., name: _Optional[str] = ...) -> None: ...
     VIEWS_FIELD_NUMBER: _ClassVar[int]
     USE_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
