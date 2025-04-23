@@ -1894,6 +1894,61 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqSelectChestChooseUp.SerializeToString,
                 response_deserializer=liqi__pb2.ReqCommon.FromString,
                 _registered_method=True)
+        self.generateAnnualReportToken = channel.unary_unary(
+                '/lq.Lobby/generateAnnualReportToken',
+                request_serializer=liqi__pb2.ReqGenerateAnnualReportToken.SerializeToString,
+                response_deserializer=liqi__pb2.ResGenerateAnnualReportToken.FromString,
+                _registered_method=True)
+        self.fetchAnnualReportInfo = channel.unary_unary(
+                '/lq.Lobby/fetchAnnualReportInfo',
+                request_serializer=liqi__pb2.ReqCommon.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchAnnualReportInfo.FromString,
+                _registered_method=True)
+        self.remarkFriend = channel.unary_unary(
+                '/lq.Lobby/remarkFriend',
+                request_serializer=liqi__pb2.ReqRemarkFriend.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.simV2ActivityFetchInfo = channel.unary_unary(
+                '/lq.Lobby/simV2ActivityFetchInfo',
+                request_serializer=liqi__pb2.ReqSimV2ActivityFetchInfo.SerializeToString,
+                response_deserializer=liqi__pb2.ResSimV2ActivityFetchInfo.FromString,
+                _registered_method=True)
+        self.simV2ActivityStartSeason = channel.unary_unary(
+                '/lq.Lobby/simV2ActivityStartSeason',
+                request_serializer=liqi__pb2.ReqSimV2ActivityStartSeason.SerializeToString,
+                response_deserializer=liqi__pb2.ResSimV2ActivityStartSeason.FromString,
+                _registered_method=True)
+        self.simV2ActivityTrain = channel.unary_unary(
+                '/lq.Lobby/simV2ActivityTrain',
+                request_serializer=liqi__pb2.ReqSimV2ActivityTrain.SerializeToString,
+                response_deserializer=liqi__pb2.ResSimV2ActivityTrain.FromString,
+                _registered_method=True)
+        self.simV2ActivitySelectEvent = channel.unary_unary(
+                '/lq.Lobby/simV2ActivitySelectEvent',
+                request_serializer=liqi__pb2.ReqSimV2ActivitySelectEvent.SerializeToString,
+                response_deserializer=liqi__pb2.ResSimV2ActivitySelectEvent.FromString,
+                _registered_method=True)
+        self.simV2ActivityStartMatch = channel.unary_unary(
+                '/lq.Lobby/simV2ActivityStartMatch',
+                request_serializer=liqi__pb2.ReqSimV2ActivityStartMatch.SerializeToString,
+                response_deserializer=liqi__pb2.ResSimV2ActivityStartMatch.FromString,
+                _registered_method=True)
+        self.simV2ActivityEndMatch = channel.unary_unary(
+                '/lq.Lobby/simV2ActivityEndMatch',
+                request_serializer=liqi__pb2.ReqSimV2ActivityEndMatch.SerializeToString,
+                response_deserializer=liqi__pb2.ResSimV2ActivityEndMatch.FromString,
+                _registered_method=True)
+        self.simV2ActivityGiveUp = channel.unary_unary(
+                '/lq.Lobby/simV2ActivityGiveUp',
+                request_serializer=liqi__pb2.ReqSimV2ActivityGiveUp.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.simV2ActivitySetUpgrade = channel.unary_unary(
+                '/lq.Lobby/simV2ActivitySetUpgrade',
+                request_serializer=liqi__pb2.ReqSimV2ActivitySetUpgrade.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
 
 
 class LobbyServicer(object):
@@ -4131,6 +4186,72 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def generateAnnualReportToken(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchAnnualReportInfo(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def remarkFriend(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def simV2ActivityFetchInfo(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def simV2ActivityStartSeason(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def simV2ActivityTrain(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def simV2ActivitySelectEvent(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def simV2ActivityStartMatch(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def simV2ActivityEndMatch(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def simV2ActivityGiveUp(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def simV2ActivitySetUpgrade(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LobbyServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -5993,6 +6114,61 @@ def add_LobbyServicer_to_server(servicer, server):
                     servicer.selectChestChooseUpActivity,
                     request_deserializer=liqi__pb2.ReqSelectChestChooseUp.FromString,
                     response_serializer=liqi__pb2.ReqCommon.SerializeToString,
+            ),
+            'generateAnnualReportToken': grpc.unary_unary_rpc_method_handler(
+                    servicer.generateAnnualReportToken,
+                    request_deserializer=liqi__pb2.ReqGenerateAnnualReportToken.FromString,
+                    response_serializer=liqi__pb2.ResGenerateAnnualReportToken.SerializeToString,
+            ),
+            'fetchAnnualReportInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchAnnualReportInfo,
+                    request_deserializer=liqi__pb2.ReqCommon.FromString,
+                    response_serializer=liqi__pb2.ResFetchAnnualReportInfo.SerializeToString,
+            ),
+            'remarkFriend': grpc.unary_unary_rpc_method_handler(
+                    servicer.remarkFriend,
+                    request_deserializer=liqi__pb2.ReqRemarkFriend.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'simV2ActivityFetchInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.simV2ActivityFetchInfo,
+                    request_deserializer=liqi__pb2.ReqSimV2ActivityFetchInfo.FromString,
+                    response_serializer=liqi__pb2.ResSimV2ActivityFetchInfo.SerializeToString,
+            ),
+            'simV2ActivityStartSeason': grpc.unary_unary_rpc_method_handler(
+                    servicer.simV2ActivityStartSeason,
+                    request_deserializer=liqi__pb2.ReqSimV2ActivityStartSeason.FromString,
+                    response_serializer=liqi__pb2.ResSimV2ActivityStartSeason.SerializeToString,
+            ),
+            'simV2ActivityTrain': grpc.unary_unary_rpc_method_handler(
+                    servicer.simV2ActivityTrain,
+                    request_deserializer=liqi__pb2.ReqSimV2ActivityTrain.FromString,
+                    response_serializer=liqi__pb2.ResSimV2ActivityTrain.SerializeToString,
+            ),
+            'simV2ActivitySelectEvent': grpc.unary_unary_rpc_method_handler(
+                    servicer.simV2ActivitySelectEvent,
+                    request_deserializer=liqi__pb2.ReqSimV2ActivitySelectEvent.FromString,
+                    response_serializer=liqi__pb2.ResSimV2ActivitySelectEvent.SerializeToString,
+            ),
+            'simV2ActivityStartMatch': grpc.unary_unary_rpc_method_handler(
+                    servicer.simV2ActivityStartMatch,
+                    request_deserializer=liqi__pb2.ReqSimV2ActivityStartMatch.FromString,
+                    response_serializer=liqi__pb2.ResSimV2ActivityStartMatch.SerializeToString,
+            ),
+            'simV2ActivityEndMatch': grpc.unary_unary_rpc_method_handler(
+                    servicer.simV2ActivityEndMatch,
+                    request_deserializer=liqi__pb2.ReqSimV2ActivityEndMatch.FromString,
+                    response_serializer=liqi__pb2.ResSimV2ActivityEndMatch.SerializeToString,
+            ),
+            'simV2ActivityGiveUp': grpc.unary_unary_rpc_method_handler(
+                    servicer.simV2ActivityGiveUp,
+                    request_deserializer=liqi__pb2.ReqSimV2ActivityGiveUp.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'simV2ActivitySetUpgrade': grpc.unary_unary_rpc_method_handler(
+                    servicer.simV2ActivitySetUpgrade,
+                    request_deserializer=liqi__pb2.ReqSimV2ActivitySetUpgrade.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -16049,6 +16225,303 @@ class Lobby(object):
             metadata,
             _registered_method=True)
 
+    @staticmethod
+    def generateAnnualReportToken(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/generateAnnualReportToken',
+            liqi__pb2.ReqGenerateAnnualReportToken.SerializeToString,
+            liqi__pb2.ResGenerateAnnualReportToken.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchAnnualReportInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchAnnualReportInfo',
+            liqi__pb2.ReqCommon.SerializeToString,
+            liqi__pb2.ResFetchAnnualReportInfo.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def remarkFriend(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/remarkFriend',
+            liqi__pb2.ReqRemarkFriend.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def simV2ActivityFetchInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/simV2ActivityFetchInfo',
+            liqi__pb2.ReqSimV2ActivityFetchInfo.SerializeToString,
+            liqi__pb2.ResSimV2ActivityFetchInfo.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def simV2ActivityStartSeason(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/simV2ActivityStartSeason',
+            liqi__pb2.ReqSimV2ActivityStartSeason.SerializeToString,
+            liqi__pb2.ResSimV2ActivityStartSeason.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def simV2ActivityTrain(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/simV2ActivityTrain',
+            liqi__pb2.ReqSimV2ActivityTrain.SerializeToString,
+            liqi__pb2.ResSimV2ActivityTrain.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def simV2ActivitySelectEvent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/simV2ActivitySelectEvent',
+            liqi__pb2.ReqSimV2ActivitySelectEvent.SerializeToString,
+            liqi__pb2.ResSimV2ActivitySelectEvent.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def simV2ActivityStartMatch(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/simV2ActivityStartMatch',
+            liqi__pb2.ReqSimV2ActivityStartMatch.SerializeToString,
+            liqi__pb2.ResSimV2ActivityStartMatch.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def simV2ActivityEndMatch(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/simV2ActivityEndMatch',
+            liqi__pb2.ReqSimV2ActivityEndMatch.SerializeToString,
+            liqi__pb2.ResSimV2ActivityEndMatch.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def simV2ActivityGiveUp(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/simV2ActivityGiveUp',
+            liqi__pb2.ReqSimV2ActivityGiveUp.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def simV2ActivitySetUpgrade(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/simV2ActivitySetUpgrade',
+            liqi__pb2.ReqSimV2ActivitySetUpgrade.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
 
 class FastTestStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -16799,6 +17272,164 @@ class FastTest(object):
             '/lq.FastTest/stopObserve',
             liqi__pb2.ReqCommon.SerializeToString,
             liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+
+class RouteStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.requestConnection = channel.unary_unary(
+                '/lq.Route/requestConnection',
+                request_serializer=liqi__pb2.ReqRequestConnection.SerializeToString,
+                response_deserializer=liqi__pb2.ResRequestConnection.FromString,
+                _registered_method=True)
+        self.requestRouteChange = channel.unary_unary(
+                '/lq.Route/requestRouteChange',
+                request_serializer=liqi__pb2.ReqRequestRouteChange.SerializeToString,
+                response_deserializer=liqi__pb2.ResRequestRouteChange.FromString,
+                _registered_method=True)
+        self.heartbeat = channel.unary_unary(
+                '/lq.Route/heartbeat',
+                request_serializer=liqi__pb2.ReqHeartbeat.SerializeToString,
+                response_deserializer=liqi__pb2.ResHeartbeat.FromString,
+                _registered_method=True)
+
+
+class RouteServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def requestConnection(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def requestRouteChange(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def heartbeat(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_RouteServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'requestConnection': grpc.unary_unary_rpc_method_handler(
+                    servicer.requestConnection,
+                    request_deserializer=liqi__pb2.ReqRequestConnection.FromString,
+                    response_serializer=liqi__pb2.ResRequestConnection.SerializeToString,
+            ),
+            'requestRouteChange': grpc.unary_unary_rpc_method_handler(
+                    servicer.requestRouteChange,
+                    request_deserializer=liqi__pb2.ReqRequestRouteChange.FromString,
+                    response_serializer=liqi__pb2.ResRequestRouteChange.SerializeToString,
+            ),
+            'heartbeat': grpc.unary_unary_rpc_method_handler(
+                    servicer.heartbeat,
+                    request_deserializer=liqi__pb2.ReqHeartbeat.FromString,
+                    response_serializer=liqi__pb2.ResHeartbeat.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'lq.Route', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('lq.Route', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class Route(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def requestConnection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Route/requestConnection',
+            liqi__pb2.ReqRequestConnection.SerializeToString,
+            liqi__pb2.ResRequestConnection.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def requestRouteChange(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Route/requestRouteChange',
+            liqi__pb2.ReqRequestRouteChange.SerializeToString,
+            liqi__pb2.ResRequestRouteChange.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def heartbeat(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Route/heartbeat',
+            liqi__pb2.ReqHeartbeat.SerializeToString,
+            liqi__pb2.ResHeartbeat.FromString,
             options,
             channel_credentials,
             insecure,
