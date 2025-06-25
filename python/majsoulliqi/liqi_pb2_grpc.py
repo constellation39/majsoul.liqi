@@ -994,6 +994,11 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqCreateXsollaOrder.SerializeToString,
                 response_deserializer=liqi__pb2.ResCreateXsollaOrder.FromString,
                 _registered_method=True)
+        self.createXsollaV4Order = channel.unary_unary(
+                '/lq.Lobby/createXsollaV4Order',
+                request_serializer=liqi__pb2.ReqCreateXsollaOrder.SerializeToString,
+                response_deserializer=liqi__pb2.ResCreateXsollaOrder.FromString,
+                _registered_method=True)
         self.verifyMyCardOrder = channel.unary_unary(
                 '/lq.Lobby/verifyMyCardOrder',
                 request_serializer=liqi__pb2.ReqVerifyMyCardOrder.SerializeToString,
@@ -1372,11 +1377,6 @@ class LobbyStub(object):
         self.checkPrivacy = channel.unary_unary(
                 '/lq.Lobby/checkPrivacy',
                 request_serializer=liqi__pb2.ReqCheckPrivacy.SerializeToString,
-                response_deserializer=liqi__pb2.ResCommon.FromString,
-                _registered_method=True)
-        self.responseCaptcha = channel.unary_unary(
-                '/lq.Lobby/responseCaptcha',
-                request_serializer=liqi__pb2.ReqResponseCaptcha.SerializeToString,
                 response_deserializer=liqi__pb2.ResCommon.FromString,
                 _registered_method=True)
         self.fetchRPGBattleHistory = channel.unary_unary(
@@ -3106,6 +3106,12 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def createXsollaV4Order(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def verifyMyCardOrder(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -3557,12 +3563,6 @@ class LobbyServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def checkPrivacy(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def responseCaptcha(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -5215,6 +5215,11 @@ def add_LobbyServicer_to_server(servicer, server):
                     request_deserializer=liqi__pb2.ReqCreateXsollaOrder.FromString,
                     response_serializer=liqi__pb2.ResCreateXsollaOrder.SerializeToString,
             ),
+            'createXsollaV4Order': grpc.unary_unary_rpc_method_handler(
+                    servicer.createXsollaV4Order,
+                    request_deserializer=liqi__pb2.ReqCreateXsollaOrder.FromString,
+                    response_serializer=liqi__pb2.ResCreateXsollaOrder.SerializeToString,
+            ),
             'verifyMyCardOrder': grpc.unary_unary_rpc_method_handler(
                     servicer.verifyMyCardOrder,
                     request_deserializer=liqi__pb2.ReqVerifyMyCardOrder.FromString,
@@ -5593,11 +5598,6 @@ def add_LobbyServicer_to_server(servicer, server):
             'checkPrivacy': grpc.unary_unary_rpc_method_handler(
                     servicer.checkPrivacy,
                     request_deserializer=liqi__pb2.ReqCheckPrivacy.FromString,
-                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
-            ),
-            'responseCaptcha': grpc.unary_unary_rpc_method_handler(
-                    servicer.responseCaptcha,
-                    request_deserializer=liqi__pb2.ReqResponseCaptcha.FromString,
                     response_serializer=liqi__pb2.ResCommon.SerializeToString,
             ),
             'fetchRPGBattleHistory': grpc.unary_unary_rpc_method_handler(
@@ -11366,6 +11366,33 @@ class Lobby(object):
             _registered_method=True)
 
     @staticmethod
+    def createXsollaV4Order(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/createXsollaV4Order',
+            liqi__pb2.ReqCreateXsollaOrder.SerializeToString,
+            liqi__pb2.ResCreateXsollaOrder.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
     def verifyMyCardOrder(request,
             target,
             options=(),
@@ -13406,33 +13433,6 @@ class Lobby(object):
             target,
             '/lq.Lobby/checkPrivacy',
             liqi__pb2.ReqCheckPrivacy.SerializeToString,
-            liqi__pb2.ResCommon.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def responseCaptcha(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/lq.Lobby/responseCaptcha',
-            liqi__pb2.ReqResponseCaptcha.SerializeToString,
             liqi__pb2.ResCommon.FromString,
             options,
             channel_credentials,
