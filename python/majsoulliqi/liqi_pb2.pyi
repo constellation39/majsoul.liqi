@@ -1652,7 +1652,7 @@ class AccountShiLian(_message.Message):
     def __init__(self, step: _Optional[int] = ..., state: _Optional[int] = ...) -> None: ...
 
 class ClientDeviceInfo(_message.Message):
-    __slots__ = ("platform", "hardware", "os", "os_version", "is_browser", "software", "sale_platform", "hardware_vendor", "model_number", "screen_width", "screen_height")
+    __slots__ = ("platform", "hardware", "os", "os_version", "is_browser", "software", "sale_platform", "hardware_vendor", "model_number", "screen_width", "screen_height", "user_agent", "screen_type")
     PLATFORM_FIELD_NUMBER: _ClassVar[int]
     HARDWARE_FIELD_NUMBER: _ClassVar[int]
     OS_FIELD_NUMBER: _ClassVar[int]
@@ -1664,6 +1664,8 @@ class ClientDeviceInfo(_message.Message):
     MODEL_NUMBER_FIELD_NUMBER: _ClassVar[int]
     SCREEN_WIDTH_FIELD_NUMBER: _ClassVar[int]
     SCREEN_HEIGHT_FIELD_NUMBER: _ClassVar[int]
+    USER_AGENT_FIELD_NUMBER: _ClassVar[int]
+    SCREEN_TYPE_FIELD_NUMBER: _ClassVar[int]
     platform: str
     hardware: str
     os: str
@@ -1675,7 +1677,9 @@ class ClientDeviceInfo(_message.Message):
     model_number: str
     screen_width: int
     screen_height: int
-    def __init__(self, platform: _Optional[str] = ..., hardware: _Optional[str] = ..., os: _Optional[str] = ..., os_version: _Optional[str] = ..., is_browser: bool = ..., software: _Optional[str] = ..., sale_platform: _Optional[str] = ..., hardware_vendor: _Optional[str] = ..., model_number: _Optional[str] = ..., screen_width: _Optional[int] = ..., screen_height: _Optional[int] = ...) -> None: ...
+    user_agent: str
+    screen_type: int
+    def __init__(self, platform: _Optional[str] = ..., hardware: _Optional[str] = ..., os: _Optional[str] = ..., os_version: _Optional[str] = ..., is_browser: bool = ..., software: _Optional[str] = ..., sale_platform: _Optional[str] = ..., hardware_vendor: _Optional[str] = ..., model_number: _Optional[str] = ..., screen_width: _Optional[int] = ..., screen_height: _Optional[int] = ..., user_agent: _Optional[str] = ..., screen_type: _Optional[int] = ...) -> None: ...
 
 class ClientVersionInfo(_message.Message):
     __slots__ = ("resource", "package")
@@ -5163,6 +5167,20 @@ class ReqHeatBeat(_message.Message):
     NO_OPERATION_COUNTER_FIELD_NUMBER: _ClassVar[int]
     no_operation_counter: int
     def __init__(self, no_operation_counter: _Optional[int] = ...) -> None: ...
+
+class ReqSearchAccountByEid(_message.Message):
+    __slots__ = ("eid",)
+    EID_FIELD_NUMBER: _ClassVar[int]
+    eid: int
+    def __init__(self, eid: _Optional[int] = ...) -> None: ...
+
+class ResSearchAccountbyEid(_message.Message):
+    __slots__ = ("error", "account_id")
+    ERROR_FIELD_NUMBER: _ClassVar[int]
+    ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
+    error: Error
+    account_id: int
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., account_id: _Optional[int] = ...) -> None: ...
 
 class ReqLoginBeat(_message.Message):
     __slots__ = ("contract",)
