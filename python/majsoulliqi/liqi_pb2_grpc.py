@@ -64,6 +64,16 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqLogin.SerializeToString,
                 response_deserializer=liqi__pb2.ResLogin.FromString,
                 _registered_method=True)
+        self.prepareLogin = channel.unary_unary(
+                '/lq.Lobby/prepareLogin',
+                request_serializer=liqi__pb2.ReqPrepareLogin.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.fastLogin = channel.unary_unary(
+                '/lq.Lobby/fastLogin',
+                request_serializer=liqi__pb2.ReqCommon.SerializeToString,
+                response_deserializer=liqi__pb2.ResFastLogin.FromString,
+                _registered_method=True)
         self.fetchInfo = channel.unary_unary(
                 '/lq.Lobby/fetchInfo',
                 request_serializer=liqi__pb2.ReqCommon.SerializeToString,
@@ -171,8 +181,8 @@ class LobbyStub(object):
                 _registered_method=True)
         self.searchAccountByEid = channel.unary_unary(
                 '/lq.Lobby/searchAccountByEid',
-                request_serializer=liqi__pb2.ReqSearchAccountByEid.SerializeToString,
-                response_deserializer=liqi__pb2.ResSearchAccountbyEid.FromString,
+                request_serializer=liqi__pb2.ReqSearchAccountByEidLobby.SerializeToString,
+                response_deserializer=liqi__pb2.ResSearchAccountbyEidLobby.FromString,
                 _registered_method=True)
         self.loginBeat = channel.unary_unary(
                 '/lq.Lobby/loginBeat',
@@ -1990,6 +2000,18 @@ class LobbyServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def login(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def prepareLogin(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fastLogin(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -4296,6 +4318,16 @@ def add_LobbyServicer_to_server(servicer, server):
                     request_deserializer=liqi__pb2.ReqLogin.FromString,
                     response_serializer=liqi__pb2.ResLogin.SerializeToString,
             ),
+            'prepareLogin': grpc.unary_unary_rpc_method_handler(
+                    servicer.prepareLogin,
+                    request_deserializer=liqi__pb2.ReqPrepareLogin.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'fastLogin': grpc.unary_unary_rpc_method_handler(
+                    servicer.fastLogin,
+                    request_deserializer=liqi__pb2.ReqCommon.FromString,
+                    response_serializer=liqi__pb2.ResFastLogin.SerializeToString,
+            ),
             'fetchInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.fetchInfo,
                     request_deserializer=liqi__pb2.ReqCommon.FromString,
@@ -4403,8 +4435,8 @@ def add_LobbyServicer_to_server(servicer, server):
             ),
             'searchAccountByEid': grpc.unary_unary_rpc_method_handler(
                     servicer.searchAccountByEid,
-                    request_deserializer=liqi__pb2.ReqSearchAccountByEid.FromString,
-                    response_serializer=liqi__pb2.ResSearchAccountbyEid.SerializeToString,
+                    request_deserializer=liqi__pb2.ReqSearchAccountByEidLobby.FromString,
+                    response_serializer=liqi__pb2.ResSearchAccountbyEidLobby.SerializeToString,
             ),
             'loginBeat': grpc.unary_unary_rpc_method_handler(
                     servicer.loginBeat,
@@ -6360,6 +6392,60 @@ class Lobby(object):
             _registered_method=True)
 
     @staticmethod
+    def prepareLogin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/prepareLogin',
+            liqi__pb2.ReqPrepareLogin.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fastLogin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fastLogin',
+            liqi__pb2.ReqCommon.SerializeToString,
+            liqi__pb2.ResFastLogin.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
     def fetchInfo(request,
             target,
             options=(),
@@ -6941,8 +7027,8 @@ class Lobby(object):
             request,
             target,
             '/lq.Lobby/searchAccountByEid',
-            liqi__pb2.ReqSearchAccountByEid.SerializeToString,
-            liqi__pb2.ResSearchAccountbyEid.FromString,
+            liqi__pb2.ReqSearchAccountByEidLobby.SerializeToString,
+            liqi__pb2.ResSearchAccountbyEidLobby.FromString,
             options,
             channel_credentials,
             insecure,

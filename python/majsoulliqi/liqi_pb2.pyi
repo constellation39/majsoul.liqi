@@ -4934,6 +4934,22 @@ class ResLogin(_message.Message):
     rewarded_version: _containers.RepeatedScalarFieldContainer[int]
     def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., account_id: _Optional[int] = ..., account: _Optional[_Union[Account, _Mapping]] = ..., game_info: _Optional[_Union[GameConnectInfo, _Mapping]] = ..., has_unread_announcement: bool = ..., access_token: _Optional[str] = ..., signup_time: _Optional[int] = ..., is_id_card_authed: bool = ..., country: _Optional[str] = ..., logined_version: _Optional[_Iterable[int]] = ..., rewarded_version: _Optional[_Iterable[int]] = ...) -> None: ...
 
+class ReqPrepareLogin(_message.Message):
+    __slots__ = ("access_token",)
+    ACCESS_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    access_token: str
+    def __init__(self, access_token: _Optional[str] = ...) -> None: ...
+
+class ResFastLogin(_message.Message):
+    __slots__ = ("error", "game_info", "room")
+    ERROR_FIELD_NUMBER: _ClassVar[int]
+    GAME_INFO_FIELD_NUMBER: _ClassVar[int]
+    ROOM_FIELD_NUMBER: _ClassVar[int]
+    error: Error
+    game_info: GameConnectInfo
+    room: Room
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., game_info: _Optional[_Union[GameConnectInfo, _Mapping]] = ..., room: _Optional[_Union[Room, _Mapping]] = ...) -> None: ...
+
 class ReqEmailLogin(_message.Message):
     __slots__ = ("email", "password", "reconnect", "device", "random_key", "client_version", "gen_access_token", "currency_platforms")
     EMAIL_FIELD_NUMBER: _ClassVar[int]
@@ -5168,13 +5184,13 @@ class ReqHeatBeat(_message.Message):
     no_operation_counter: int
     def __init__(self, no_operation_counter: _Optional[int] = ...) -> None: ...
 
-class ReqSearchAccountByEid(_message.Message):
+class ReqSearchAccountByEidLobby(_message.Message):
     __slots__ = ("eid",)
     EID_FIELD_NUMBER: _ClassVar[int]
     eid: int
     def __init__(self, eid: _Optional[int] = ...) -> None: ...
 
-class ResSearchAccountbyEid(_message.Message):
+class ResSearchAccountbyEidLobby(_message.Message):
     __slots__ = ("error", "account_id")
     ERROR_FIELD_NUMBER: _ClassVar[int]
     ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
@@ -12245,9 +12261,9 @@ class ReqRequestConnection(_message.Message):
     ROUTE_ID_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     type: int
-    route_id: int
+    route_id: str
     timestamp: int
-    def __init__(self, type: _Optional[int] = ..., route_id: _Optional[int] = ..., timestamp: _Optional[int] = ...) -> None: ...
+    def __init__(self, type: _Optional[int] = ..., route_id: _Optional[str] = ..., timestamp: _Optional[int] = ...) -> None: ...
 
 class ResRequestConnection(_message.Message):
     __slots__ = ("error", "timestamp", "result")
@@ -12264,10 +12280,10 @@ class ReqRequestRouteChange(_message.Message):
     BEFORE_FIELD_NUMBER: _ClassVar[int]
     ROUTE_ID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
-    before: int
-    route_id: int
+    before: str
+    route_id: str
     type: int
-    def __init__(self, before: _Optional[int] = ..., route_id: _Optional[int] = ..., type: _Optional[int] = ...) -> None: ...
+    def __init__(self, before: _Optional[str] = ..., route_id: _Optional[str] = ..., type: _Optional[int] = ...) -> None: ...
 
 class ResRequestRouteChange(_message.Message):
     __slots__ = ("error", "result")
@@ -12278,19 +12294,19 @@ class ResRequestRouteChange(_message.Message):
     def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., result: _Optional[int] = ...) -> None: ...
 
 class ReqHeartbeat(_message.Message):
-    __slots__ = ("timestamp", "no_operation_counter")
-    TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("delay", "no_operation_counter", "platform", "network_quality")
+    DELAY_FIELD_NUMBER: _ClassVar[int]
     NO_OPERATION_COUNTER_FIELD_NUMBER: _ClassVar[int]
-    timestamp: int
+    PLATFORM_FIELD_NUMBER: _ClassVar[int]
+    NETWORK_QUALITY_FIELD_NUMBER: _ClassVar[int]
+    delay: int
     no_operation_counter: int
-    def __init__(self, timestamp: _Optional[int] = ..., no_operation_counter: _Optional[int] = ...) -> None: ...
+    platform: int
+    network_quality: int
+    def __init__(self, delay: _Optional[int] = ..., no_operation_counter: _Optional[int] = ..., platform: _Optional[int] = ..., network_quality: _Optional[int] = ...) -> None: ...
 
 class ResHeartbeat(_message.Message):
-    __slots__ = ("error", "delta", "timestamp")
+    __slots__ = ("error",)
     ERROR_FIELD_NUMBER: _ClassVar[int]
-    DELTA_FIELD_NUMBER: _ClassVar[int]
-    TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     error: Error
-    delta: int
-    timestamp: int
-    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., delta: _Optional[int] = ..., timestamp: _Optional[int] = ...) -> None: ...
+    def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ...) -> None: ...
