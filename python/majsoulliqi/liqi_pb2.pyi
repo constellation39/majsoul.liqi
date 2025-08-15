@@ -4935,10 +4935,12 @@ class ResLogin(_message.Message):
     def __init__(self, error: _Optional[_Union[Error, _Mapping]] = ..., account_id: _Optional[int] = ..., account: _Optional[_Union[Account, _Mapping]] = ..., game_info: _Optional[_Union[GameConnectInfo, _Mapping]] = ..., has_unread_announcement: bool = ..., access_token: _Optional[str] = ..., signup_time: _Optional[int] = ..., is_id_card_authed: bool = ..., country: _Optional[str] = ..., logined_version: _Optional[_Iterable[int]] = ..., rewarded_version: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class ReqPrepareLogin(_message.Message):
-    __slots__ = ("access_token",)
+    __slots__ = ("access_token", "type")
     ACCESS_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
     access_token: str
-    def __init__(self, access_token: _Optional[str] = ...) -> None: ...
+    type: int
+    def __init__(self, access_token: _Optional[str] = ..., type: _Optional[int] = ...) -> None: ...
 
 class ResFastLogin(_message.Message):
     __slots__ = ("error", "game_info", "room")

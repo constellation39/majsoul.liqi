@@ -3711,6 +3711,7 @@ message ResLogin {
 message ReqPrepareLogin {
 
     string access_token = 1;
+    uint32 type = 2;
 }
 
 message ResFastLogin {
