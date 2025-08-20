@@ -1714,10 +1714,10 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqCommon.SerializeToString,
                 response_deserializer=liqi__pb2.ResGenerateContestManagerLoginCode.FromString,
                 _registered_method=True)
-        self.amuletActivityFetchInfo = channel.unary_unary(
-                '/lq.Lobby/amuletActivityFetchInfo',
-                request_serializer=liqi__pb2.ReqAmuletActivityFetchInfo.SerializeToString,
-                response_deserializer=liqi__pb2.ResAmuletActivityFetchInfo.FromString,
+        self.fetchAmuletActivityData = channel.unary_unary(
+                '/lq.Lobby/fetchAmuletActivityData',
+                request_serializer=liqi__pb2.ReqFetchAmuletActivityData.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchAmuletActivityData.FromString,
                 _registered_method=True)
         self.amuletActivityFetchBrief = channel.unary_unary(
                 '/lq.Lobby/amuletActivityFetchBrief',
@@ -1727,42 +1727,37 @@ class LobbyStub(object):
         self.amuletActivityStartGame = channel.unary_unary(
                 '/lq.Lobby/amuletActivityStartGame',
                 request_serializer=liqi__pb2.ReqAmuletActivityStartGame.SerializeToString,
-                response_deserializer=liqi__pb2.ResAmuletActivityStartGame.FromString,
+                response_deserializer=liqi__pb2.ResAmuletEventResponse.FromString,
                 _registered_method=True)
         self.amuletActivityOperate = channel.unary_unary(
                 '/lq.Lobby/amuletActivityOperate',
                 request_serializer=liqi__pb2.ReqAmuletActivityOperate.SerializeToString,
-                response_deserializer=liqi__pb2.ResAmuletActivityOperate.FromString,
-                _registered_method=True)
-        self.amuletActivityChangeHands = channel.unary_unary(
-                '/lq.Lobby/amuletActivityChangeHands',
-                request_serializer=liqi__pb2.ReqAmuletActivityChangeHands.SerializeToString,
-                response_deserializer=liqi__pb2.ResAmuletActivityChangeHands.FromString,
+                response_deserializer=liqi__pb2.ResAmuletEventResponse.FromString,
                 _registered_method=True)
         self.amuletActivityUpgrade = channel.unary_unary(
                 '/lq.Lobby/amuletActivityUpgrade',
                 request_serializer=liqi__pb2.ReqAmuletActivityUpgrade.SerializeToString,
-                response_deserializer=liqi__pb2.ResAmuletActivityUpgrade.FromString,
+                response_deserializer=liqi__pb2.ResAmuletEventResponse.FromString,
                 _registered_method=True)
         self.amuletActivityBuy = channel.unary_unary(
                 '/lq.Lobby/amuletActivityBuy',
                 request_serializer=liqi__pb2.ReqAmuletActivityBuy.SerializeToString,
-                response_deserializer=liqi__pb2.ResAmuletActivityBuy.FromString,
+                response_deserializer=liqi__pb2.ResAmuletEventResponse.FromString,
                 _registered_method=True)
         self.amuletActivitySelectPack = channel.unary_unary(
                 '/lq.Lobby/amuletActivitySelectPack',
                 request_serializer=liqi__pb2.ReqAmuletActivitySelectPack.SerializeToString,
-                response_deserializer=liqi__pb2.ResAmuletActivitySelectPack.FromString,
+                response_deserializer=liqi__pb2.ResAmuletEventResponse.FromString,
                 _registered_method=True)
         self.amuletActivitySellEffect = channel.unary_unary(
                 '/lq.Lobby/amuletActivitySellEffect',
                 request_serializer=liqi__pb2.ReqAmuletActivitySellEffect.SerializeToString,
-                response_deserializer=liqi__pb2.ResAmuletActivitySellEffect.FromString,
+                response_deserializer=liqi__pb2.ResAmuletEventResponse.FromString,
                 _registered_method=True)
         self.amuletActivityEffectSort = channel.unary_unary(
                 '/lq.Lobby/amuletActivityEffectSort',
                 request_serializer=liqi__pb2.ReqAmuletActivityEffectSort.SerializeToString,
-                response_deserializer=liqi__pb2.ResCommon.FromString,
+                response_deserializer=liqi__pb2.ResAmuletEventResponse.FromString,
                 _registered_method=True)
         self.amuletActivityGiveup = channel.unary_unary(
                 '/lq.Lobby/amuletActivityGiveup',
@@ -1772,22 +1767,22 @@ class LobbyStub(object):
         self.amuletActivityRefreshShop = channel.unary_unary(
                 '/lq.Lobby/amuletActivityRefreshShop',
                 request_serializer=liqi__pb2.ReqAmuletActivityRefreshShop.SerializeToString,
-                response_deserializer=liqi__pb2.ResAmuletActivityRefreshShop.FromString,
+                response_deserializer=liqi__pb2.ResAmuletEventResponse.FromString,
                 _registered_method=True)
         self.amuletActivitySelectFreeEffect = channel.unary_unary(
                 '/lq.Lobby/amuletActivitySelectFreeEffect',
                 request_serializer=liqi__pb2.ReqAmuletActivitySelectFreeEffect.SerializeToString,
-                response_deserializer=liqi__pb2.ResAmuletActivitySelectFreeEffect.FromString,
+                response_deserializer=liqi__pb2.ResAmuletEventResponse.FromString,
                 _registered_method=True)
         self.amuletActivityUpgradeShopBuff = channel.unary_unary(
                 '/lq.Lobby/amuletActivityUpgradeShopBuff',
                 request_serializer=liqi__pb2.ReqAmuletActivityUpgradeShopBuff.SerializeToString,
-                response_deserializer=liqi__pb2.ResAmuletActivityUpgradeShopBuff.FromString,
+                response_deserializer=liqi__pb2.ResAmuletEventResponse.FromString,
                 _registered_method=True)
         self.amuletActivityEndShopping = channel.unary_unary(
                 '/lq.Lobby/amuletActivityEndShopping',
                 request_serializer=liqi__pb2.ReqAmuletActivityEndShopping.SerializeToString,
-                response_deserializer=liqi__pb2.ResAmuletActivityEndShopping.FromString,
+                response_deserializer=liqi__pb2.ResAmuletEventResponse.FromString,
                 _registered_method=True)
         self.amuletActivitySetSkillLevel = channel.unary_unary(
                 '/lq.Lobby/amuletActivitySetSkillLevel',
@@ -1802,12 +1797,12 @@ class LobbyStub(object):
         self.amuletActivitySelectRewardPack = channel.unary_unary(
                 '/lq.Lobby/amuletActivitySelectRewardPack',
                 request_serializer=liqi__pb2.ReqAmuletActivitySelectRewardPack.SerializeToString,
-                response_deserializer=liqi__pb2.ResAmuletActivitySelectRewardPack.FromString,
+                response_deserializer=liqi__pb2.ResAmuletEventResponse.FromString,
                 _registered_method=True)
-        self.amuletActivityReceiveTaskReward = channel.unary_unary(
-                '/lq.Lobby/amuletActivityReceiveTaskReward',
-                request_serializer=liqi__pb2.ReqAmuletActivityReceiveTaskReward.SerializeToString,
-                response_deserializer=liqi__pb2.ResAmuletActivityReceiveTaskReward.FromString,
+        self.amuletActivitySelectBookEffect = channel.unary_unary(
+                '/lq.Lobby/amuletActivitySelectBookEffect',
+                request_serializer=liqi__pb2.ReqAmuletActivitySelectBookEffect.SerializeToString,
+                response_deserializer=liqi__pb2.ResCommon.FromString,
                 _registered_method=True)
         self.storyActivityUnlock = channel.unary_unary(
                 '/lq.Lobby/storyActivityUnlock',
@@ -1963,6 +1958,16 @@ class LobbyStub(object):
                 '/lq.Lobby/simV2ActivitySetUpgrade',
                 request_serializer=liqi__pb2.ReqSimV2ActivitySetUpgrade.SerializeToString,
                 response_deserializer=liqi__pb2.ResCommon.FromString,
+                _registered_method=True)
+        self.progressRewardActivityReceive = channel.unary_unary(
+                '/lq.Lobby/progressRewardActivityReceive',
+                request_serializer=liqi__pb2.ReqProgressRewardActivityReceive.SerializeToString,
+                response_deserializer=liqi__pb2.ResProgressRewardActivityReceive.FromString,
+                _registered_method=True)
+        self.fetchProgressRewardActivityInfo = channel.unary_unary(
+                '/lq.Lobby/fetchProgressRewardActivityInfo',
+                request_serializer=liqi__pb2.ReqFetchProgressRewardActivityInfo.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchProgressRewardActivityInfo.FromString,
                 _registered_method=True)
 
 
@@ -3985,7 +3990,7 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def amuletActivityFetchInfo(self, request, context):
+    def fetchAmuletActivityData(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -4004,12 +4009,6 @@ class LobbyServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def amuletActivityOperate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def amuletActivityChangeHands(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -4093,7 +4092,7 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def amuletActivityReceiveTaskReward(self, request, context):
+    def amuletActivitySelectBookEffect(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -4280,6 +4279,18 @@ class LobbyServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def simV2ActivitySetUpgrade(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def progressRewardActivityReceive(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchProgressRewardActivityInfo(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -5968,10 +5979,10 @@ def add_LobbyServicer_to_server(servicer, server):
                     request_deserializer=liqi__pb2.ReqCommon.FromString,
                     response_serializer=liqi__pb2.ResGenerateContestManagerLoginCode.SerializeToString,
             ),
-            'amuletActivityFetchInfo': grpc.unary_unary_rpc_method_handler(
-                    servicer.amuletActivityFetchInfo,
-                    request_deserializer=liqi__pb2.ReqAmuletActivityFetchInfo.FromString,
-                    response_serializer=liqi__pb2.ResAmuletActivityFetchInfo.SerializeToString,
+            'fetchAmuletActivityData': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchAmuletActivityData,
+                    request_deserializer=liqi__pb2.ReqFetchAmuletActivityData.FromString,
+                    response_serializer=liqi__pb2.ResFetchAmuletActivityData.SerializeToString,
             ),
             'amuletActivityFetchBrief': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivityFetchBrief,
@@ -5981,42 +5992,37 @@ def add_LobbyServicer_to_server(servicer, server):
             'amuletActivityStartGame': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivityStartGame,
                     request_deserializer=liqi__pb2.ReqAmuletActivityStartGame.FromString,
-                    response_serializer=liqi__pb2.ResAmuletActivityStartGame.SerializeToString,
+                    response_serializer=liqi__pb2.ResAmuletEventResponse.SerializeToString,
             ),
             'amuletActivityOperate': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivityOperate,
                     request_deserializer=liqi__pb2.ReqAmuletActivityOperate.FromString,
-                    response_serializer=liqi__pb2.ResAmuletActivityOperate.SerializeToString,
-            ),
-            'amuletActivityChangeHands': grpc.unary_unary_rpc_method_handler(
-                    servicer.amuletActivityChangeHands,
-                    request_deserializer=liqi__pb2.ReqAmuletActivityChangeHands.FromString,
-                    response_serializer=liqi__pb2.ResAmuletActivityChangeHands.SerializeToString,
+                    response_serializer=liqi__pb2.ResAmuletEventResponse.SerializeToString,
             ),
             'amuletActivityUpgrade': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivityUpgrade,
                     request_deserializer=liqi__pb2.ReqAmuletActivityUpgrade.FromString,
-                    response_serializer=liqi__pb2.ResAmuletActivityUpgrade.SerializeToString,
+                    response_serializer=liqi__pb2.ResAmuletEventResponse.SerializeToString,
             ),
             'amuletActivityBuy': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivityBuy,
                     request_deserializer=liqi__pb2.ReqAmuletActivityBuy.FromString,
-                    response_serializer=liqi__pb2.ResAmuletActivityBuy.SerializeToString,
+                    response_serializer=liqi__pb2.ResAmuletEventResponse.SerializeToString,
             ),
             'amuletActivitySelectPack': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivitySelectPack,
                     request_deserializer=liqi__pb2.ReqAmuletActivitySelectPack.FromString,
-                    response_serializer=liqi__pb2.ResAmuletActivitySelectPack.SerializeToString,
+                    response_serializer=liqi__pb2.ResAmuletEventResponse.SerializeToString,
             ),
             'amuletActivitySellEffect': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivitySellEffect,
                     request_deserializer=liqi__pb2.ReqAmuletActivitySellEffect.FromString,
-                    response_serializer=liqi__pb2.ResAmuletActivitySellEffect.SerializeToString,
+                    response_serializer=liqi__pb2.ResAmuletEventResponse.SerializeToString,
             ),
             'amuletActivityEffectSort': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivityEffectSort,
                     request_deserializer=liqi__pb2.ReqAmuletActivityEffectSort.FromString,
-                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
+                    response_serializer=liqi__pb2.ResAmuletEventResponse.SerializeToString,
             ),
             'amuletActivityGiveup': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivityGiveup,
@@ -6026,22 +6032,22 @@ def add_LobbyServicer_to_server(servicer, server):
             'amuletActivityRefreshShop': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivityRefreshShop,
                     request_deserializer=liqi__pb2.ReqAmuletActivityRefreshShop.FromString,
-                    response_serializer=liqi__pb2.ResAmuletActivityRefreshShop.SerializeToString,
+                    response_serializer=liqi__pb2.ResAmuletEventResponse.SerializeToString,
             ),
             'amuletActivitySelectFreeEffect': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivitySelectFreeEffect,
                     request_deserializer=liqi__pb2.ReqAmuletActivitySelectFreeEffect.FromString,
-                    response_serializer=liqi__pb2.ResAmuletActivitySelectFreeEffect.SerializeToString,
+                    response_serializer=liqi__pb2.ResAmuletEventResponse.SerializeToString,
             ),
             'amuletActivityUpgradeShopBuff': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivityUpgradeShopBuff,
                     request_deserializer=liqi__pb2.ReqAmuletActivityUpgradeShopBuff.FromString,
-                    response_serializer=liqi__pb2.ResAmuletActivityUpgradeShopBuff.SerializeToString,
+                    response_serializer=liqi__pb2.ResAmuletEventResponse.SerializeToString,
             ),
             'amuletActivityEndShopping': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivityEndShopping,
                     request_deserializer=liqi__pb2.ReqAmuletActivityEndShopping.FromString,
-                    response_serializer=liqi__pb2.ResAmuletActivityEndShopping.SerializeToString,
+                    response_serializer=liqi__pb2.ResAmuletEventResponse.SerializeToString,
             ),
             'amuletActivitySetSkillLevel': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivitySetSkillLevel,
@@ -6056,12 +6062,12 @@ def add_LobbyServicer_to_server(servicer, server):
             'amuletActivitySelectRewardPack': grpc.unary_unary_rpc_method_handler(
                     servicer.amuletActivitySelectRewardPack,
                     request_deserializer=liqi__pb2.ReqAmuletActivitySelectRewardPack.FromString,
-                    response_serializer=liqi__pb2.ResAmuletActivitySelectRewardPack.SerializeToString,
+                    response_serializer=liqi__pb2.ResAmuletEventResponse.SerializeToString,
             ),
-            'amuletActivityReceiveTaskReward': grpc.unary_unary_rpc_method_handler(
-                    servicer.amuletActivityReceiveTaskReward,
-                    request_deserializer=liqi__pb2.ReqAmuletActivityReceiveTaskReward.FromString,
-                    response_serializer=liqi__pb2.ResAmuletActivityReceiveTaskReward.SerializeToString,
+            'amuletActivitySelectBookEffect': grpc.unary_unary_rpc_method_handler(
+                    servicer.amuletActivitySelectBookEffect,
+                    request_deserializer=liqi__pb2.ReqAmuletActivitySelectBookEffect.FromString,
+                    response_serializer=liqi__pb2.ResCommon.SerializeToString,
             ),
             'storyActivityUnlock': grpc.unary_unary_rpc_method_handler(
                     servicer.storyActivityUnlock,
@@ -6217,6 +6223,16 @@ def add_LobbyServicer_to_server(servicer, server):
                     servicer.simV2ActivitySetUpgrade,
                     request_deserializer=liqi__pb2.ReqSimV2ActivitySetUpgrade.FromString,
                     response_serializer=liqi__pb2.ResCommon.SerializeToString,
+            ),
+            'progressRewardActivityReceive': grpc.unary_unary_rpc_method_handler(
+                    servicer.progressRewardActivityReceive,
+                    request_deserializer=liqi__pb2.ReqProgressRewardActivityReceive.FromString,
+                    response_serializer=liqi__pb2.ResProgressRewardActivityReceive.SerializeToString,
+            ),
+            'fetchProgressRewardActivityInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchProgressRewardActivityInfo,
+                    request_deserializer=liqi__pb2.ReqFetchProgressRewardActivityInfo.FromString,
+                    response_serializer=liqi__pb2.ResFetchProgressRewardActivityInfo.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -15302,7 +15318,7 @@ class Lobby(object):
             _registered_method=True)
 
     @staticmethod
-    def amuletActivityFetchInfo(request,
+    def fetchAmuletActivityData(request,
             target,
             options=(),
             channel_credentials=None,
@@ -15315,9 +15331,9 @@ class Lobby(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/lq.Lobby/amuletActivityFetchInfo',
-            liqi__pb2.ReqAmuletActivityFetchInfo.SerializeToString,
-            liqi__pb2.ResAmuletActivityFetchInfo.FromString,
+            '/lq.Lobby/fetchAmuletActivityData',
+            liqi__pb2.ReqFetchAmuletActivityData.SerializeToString,
+            liqi__pb2.ResFetchAmuletActivityData.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15371,7 +15387,7 @@ class Lobby(object):
             target,
             '/lq.Lobby/amuletActivityStartGame',
             liqi__pb2.ReqAmuletActivityStartGame.SerializeToString,
-            liqi__pb2.ResAmuletActivityStartGame.FromString,
+            liqi__pb2.ResAmuletEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15398,34 +15414,7 @@ class Lobby(object):
             target,
             '/lq.Lobby/amuletActivityOperate',
             liqi__pb2.ReqAmuletActivityOperate.SerializeToString,
-            liqi__pb2.ResAmuletActivityOperate.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def amuletActivityChangeHands(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/lq.Lobby/amuletActivityChangeHands',
-            liqi__pb2.ReqAmuletActivityChangeHands.SerializeToString,
-            liqi__pb2.ResAmuletActivityChangeHands.FromString,
+            liqi__pb2.ResAmuletEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15452,7 +15441,7 @@ class Lobby(object):
             target,
             '/lq.Lobby/amuletActivityUpgrade',
             liqi__pb2.ReqAmuletActivityUpgrade.SerializeToString,
-            liqi__pb2.ResAmuletActivityUpgrade.FromString,
+            liqi__pb2.ResAmuletEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15479,7 +15468,7 @@ class Lobby(object):
             target,
             '/lq.Lobby/amuletActivityBuy',
             liqi__pb2.ReqAmuletActivityBuy.SerializeToString,
-            liqi__pb2.ResAmuletActivityBuy.FromString,
+            liqi__pb2.ResAmuletEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15506,7 +15495,7 @@ class Lobby(object):
             target,
             '/lq.Lobby/amuletActivitySelectPack',
             liqi__pb2.ReqAmuletActivitySelectPack.SerializeToString,
-            liqi__pb2.ResAmuletActivitySelectPack.FromString,
+            liqi__pb2.ResAmuletEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15533,7 +15522,7 @@ class Lobby(object):
             target,
             '/lq.Lobby/amuletActivitySellEffect',
             liqi__pb2.ReqAmuletActivitySellEffect.SerializeToString,
-            liqi__pb2.ResAmuletActivitySellEffect.FromString,
+            liqi__pb2.ResAmuletEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15560,7 +15549,7 @@ class Lobby(object):
             target,
             '/lq.Lobby/amuletActivityEffectSort',
             liqi__pb2.ReqAmuletActivityEffectSort.SerializeToString,
-            liqi__pb2.ResCommon.FromString,
+            liqi__pb2.ResAmuletEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15614,7 +15603,7 @@ class Lobby(object):
             target,
             '/lq.Lobby/amuletActivityRefreshShop',
             liqi__pb2.ReqAmuletActivityRefreshShop.SerializeToString,
-            liqi__pb2.ResAmuletActivityRefreshShop.FromString,
+            liqi__pb2.ResAmuletEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15641,7 +15630,7 @@ class Lobby(object):
             target,
             '/lq.Lobby/amuletActivitySelectFreeEffect',
             liqi__pb2.ReqAmuletActivitySelectFreeEffect.SerializeToString,
-            liqi__pb2.ResAmuletActivitySelectFreeEffect.FromString,
+            liqi__pb2.ResAmuletEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15668,7 +15657,7 @@ class Lobby(object):
             target,
             '/lq.Lobby/amuletActivityUpgradeShopBuff',
             liqi__pb2.ReqAmuletActivityUpgradeShopBuff.SerializeToString,
-            liqi__pb2.ResAmuletActivityUpgradeShopBuff.FromString,
+            liqi__pb2.ResAmuletEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15695,7 +15684,7 @@ class Lobby(object):
             target,
             '/lq.Lobby/amuletActivityEndShopping',
             liqi__pb2.ReqAmuletActivityEndShopping.SerializeToString,
-            liqi__pb2.ResAmuletActivityEndShopping.FromString,
+            liqi__pb2.ResAmuletEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15776,7 +15765,7 @@ class Lobby(object):
             target,
             '/lq.Lobby/amuletActivitySelectRewardPack',
             liqi__pb2.ReqAmuletActivitySelectRewardPack.SerializeToString,
-            liqi__pb2.ResAmuletActivitySelectRewardPack.FromString,
+            liqi__pb2.ResAmuletEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15788,7 +15777,7 @@ class Lobby(object):
             _registered_method=True)
 
     @staticmethod
-    def amuletActivityReceiveTaskReward(request,
+    def amuletActivitySelectBookEffect(request,
             target,
             options=(),
             channel_credentials=None,
@@ -15801,9 +15790,9 @@ class Lobby(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/lq.Lobby/amuletActivityReceiveTaskReward',
-            liqi__pb2.ReqAmuletActivityReceiveTaskReward.SerializeToString,
-            liqi__pb2.ResAmuletActivityReceiveTaskReward.FromString,
+            '/lq.Lobby/amuletActivitySelectBookEffect',
+            liqi__pb2.ReqAmuletActivitySelectBookEffect.SerializeToString,
+            liqi__pb2.ResCommon.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16641,6 +16630,60 @@ class Lobby(object):
             '/lq.Lobby/simV2ActivitySetUpgrade',
             liqi__pb2.ReqSimV2ActivitySetUpgrade.SerializeToString,
             liqi__pb2.ResCommon.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def progressRewardActivityReceive(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/progressRewardActivityReceive',
+            liqi__pb2.ReqProgressRewardActivityReceive.SerializeToString,
+            liqi__pb2.ResProgressRewardActivityReceive.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchProgressRewardActivityInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchProgressRewardActivityInfo',
+            liqi__pb2.ReqFetchProgressRewardActivityInfo.SerializeToString,
+            liqi__pb2.ResFetchProgressRewardActivityInfo.FromString,
             options,
             channel_credentials,
             insecure,
