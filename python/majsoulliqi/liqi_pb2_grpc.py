@@ -1164,6 +1164,26 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqTargetCustomizedContest.SerializeToString,
                 response_deserializer=liqi__pb2.ResCommon.FromString,
                 _registered_method=True)
+        self.fetchContestTeamRank = channel.unary_unary(
+                '/lq.Lobby/fetchContestTeamRank',
+                request_serializer=liqi__pb2.ReqFetchContestTeamRank.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchContestTeamRank.FromString,
+                _registered_method=True)
+        self.fetchContestTeamMember = channel.unary_unary(
+                '/lq.Lobby/fetchContestTeamMember',
+                request_serializer=liqi__pb2.ReqFetchContestTeamMember.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchContestTeamMember.FromString,
+                _registered_method=True)
+        self.fetchContestTeamPlayerRank = channel.unary_unary(
+                '/lq.Lobby/fetchContestTeamPlayerRank',
+                request_serializer=liqi__pb2.ReqFetchContestTeamPlayerRank.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchContestPlayerRank.FromString,
+                _registered_method=True)
+        self.fetchContestPlayerRank = channel.unary_unary(
+                '/lq.Lobby/fetchContestPlayerRank',
+                request_serializer=liqi__pb2.ReqFetchContestPlayerRank.SerializeToString,
+                response_deserializer=liqi__pb2.ResFetchContestPlayerRank.FromString,
+                _registered_method=True)
         self.fetchActivityList = channel.unary_unary(
                 '/lq.Lobby/fetchActivityList',
                 request_serializer=liqi__pb2.ReqCommon.SerializeToString,
@@ -1634,6 +1654,11 @@ class LobbyStub(object):
                 request_serializer=liqi__pb2.ReqNextRoundVillage.SerializeToString,
                 response_deserializer=liqi__pb2.ResNextRoundVillage.FromString,
                 _registered_method=True)
+        self.shootActivityAttackEnemies = channel.unary_unary(
+                '/lq.Lobby/shootActivityAttackEnemies',
+                request_serializer=liqi__pb2.ReqShootActivityAttackEnemies.SerializeToString,
+                response_deserializer=liqi__pb2.ResShootActivityAttackEnemies.FromString,
+                _registered_method=True)
         self.resolveFestivalActivityProposal = channel.unary_unary(
                 '/lq.Lobby/resolveFestivalActivityProposal',
                 request_serializer=liqi__pb2.ReqResolveFestivalActivityProposal.SerializeToString,
@@ -1693,11 +1718,6 @@ class LobbyStub(object):
                 '/lq.Lobby/updateManagerCustomizedContest',
                 request_serializer=liqi__pb2.ReqUpdateManagerCustomizedContest.SerializeToString,
                 response_deserializer=liqi__pb2.ResCommon.FromString,
-                _registered_method=True)
-        self.fetchContestPlayerRank = channel.unary_unary(
-                '/lq.Lobby/fetchContestPlayerRank',
-                request_serializer=liqi__pb2.ReqFetchContestPlayerRank.SerializeToString,
-                response_deserializer=liqi__pb2.ResFetchContestPlayerRank.FromString,
                 _registered_method=True)
         self.fetchReadyPlayerList = channel.unary_unary(
                 '/lq.Lobby/fetchReadyPlayerList',
@@ -3330,6 +3350,30 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def fetchContestTeamRank(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchContestTeamMember(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchContestTeamPlayerRank(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchContestPlayerRank(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def fetchActivityList(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -3894,6 +3938,12 @@ class LobbyServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def shootActivityAttackEnemies(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def resolveFestivalActivityProposal(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -3961,12 +4011,6 @@ class LobbyServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def updateManagerCustomizedContest(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def fetchContestPlayerRank(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -5429,6 +5473,26 @@ def add_LobbyServicer_to_server(servicer, server):
                     request_deserializer=liqi__pb2.ReqTargetCustomizedContest.FromString,
                     response_serializer=liqi__pb2.ResCommon.SerializeToString,
             ),
+            'fetchContestTeamRank': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchContestTeamRank,
+                    request_deserializer=liqi__pb2.ReqFetchContestTeamRank.FromString,
+                    response_serializer=liqi__pb2.ResFetchContestTeamRank.SerializeToString,
+            ),
+            'fetchContestTeamMember': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchContestTeamMember,
+                    request_deserializer=liqi__pb2.ReqFetchContestTeamMember.FromString,
+                    response_serializer=liqi__pb2.ResFetchContestTeamMember.SerializeToString,
+            ),
+            'fetchContestTeamPlayerRank': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchContestTeamPlayerRank,
+                    request_deserializer=liqi__pb2.ReqFetchContestTeamPlayerRank.FromString,
+                    response_serializer=liqi__pb2.ResFetchContestPlayerRank.SerializeToString,
+            ),
+            'fetchContestPlayerRank': grpc.unary_unary_rpc_method_handler(
+                    servicer.fetchContestPlayerRank,
+                    request_deserializer=liqi__pb2.ReqFetchContestPlayerRank.FromString,
+                    response_serializer=liqi__pb2.ResFetchContestPlayerRank.SerializeToString,
+            ),
             'fetchActivityList': grpc.unary_unary_rpc_method_handler(
                     servicer.fetchActivityList,
                     request_deserializer=liqi__pb2.ReqCommon.FromString,
@@ -5899,6 +5963,11 @@ def add_LobbyServicer_to_server(servicer, server):
                     request_deserializer=liqi__pb2.ReqNextRoundVillage.FromString,
                     response_serializer=liqi__pb2.ResNextRoundVillage.SerializeToString,
             ),
+            'shootActivityAttackEnemies': grpc.unary_unary_rpc_method_handler(
+                    servicer.shootActivityAttackEnemies,
+                    request_deserializer=liqi__pb2.ReqShootActivityAttackEnemies.FromString,
+                    response_serializer=liqi__pb2.ResShootActivityAttackEnemies.SerializeToString,
+            ),
             'resolveFestivalActivityProposal': grpc.unary_unary_rpc_method_handler(
                     servicer.resolveFestivalActivityProposal,
                     request_deserializer=liqi__pb2.ReqResolveFestivalActivityProposal.FromString,
@@ -5958,11 +6027,6 @@ def add_LobbyServicer_to_server(servicer, server):
                     servicer.updateManagerCustomizedContest,
                     request_deserializer=liqi__pb2.ReqUpdateManagerCustomizedContest.FromString,
                     response_serializer=liqi__pb2.ResCommon.SerializeToString,
-            ),
-            'fetchContestPlayerRank': grpc.unary_unary_rpc_method_handler(
-                    servicer.fetchContestPlayerRank,
-                    request_deserializer=liqi__pb2.ReqFetchContestPlayerRank.FromString,
-                    response_serializer=liqi__pb2.ResFetchContestPlayerRank.SerializeToString,
             ),
             'fetchReadyPlayerList': grpc.unary_unary_rpc_method_handler(
                     servicer.fetchReadyPlayerList,
@@ -12348,6 +12412,114 @@ class Lobby(object):
             _registered_method=True)
 
     @staticmethod
+    def fetchContestTeamRank(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchContestTeamRank',
+            liqi__pb2.ReqFetchContestTeamRank.SerializeToString,
+            liqi__pb2.ResFetchContestTeamRank.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchContestTeamMember(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchContestTeamMember',
+            liqi__pb2.ReqFetchContestTeamMember.SerializeToString,
+            liqi__pb2.ResFetchContestTeamMember.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchContestTeamPlayerRank(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchContestTeamPlayerRank',
+            liqi__pb2.ReqFetchContestTeamPlayerRank.SerializeToString,
+            liqi__pb2.ResFetchContestPlayerRank.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def fetchContestPlayerRank(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/fetchContestPlayerRank',
+            liqi__pb2.ReqFetchContestPlayerRank.SerializeToString,
+            liqi__pb2.ResFetchContestPlayerRank.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
     def fetchActivityList(request,
             target,
             options=(),
@@ -14886,6 +15058,33 @@ class Lobby(object):
             _registered_method=True)
 
     @staticmethod
+    def shootActivityAttackEnemies(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/lq.Lobby/shootActivityAttackEnemies',
+            liqi__pb2.ReqShootActivityAttackEnemies.SerializeToString,
+            liqi__pb2.ResShootActivityAttackEnemies.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
     def resolveFestivalActivityProposal(request,
             target,
             options=(),
@@ -15199,33 +15398,6 @@ class Lobby(object):
             '/lq.Lobby/updateManagerCustomizedContest',
             liqi__pb2.ReqUpdateManagerCustomizedContest.SerializeToString,
             liqi__pb2.ResCommon.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def fetchContestPlayerRank(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/lq.Lobby/fetchContestPlayerRank',
-            liqi__pb2.ReqFetchContestPlayerRank.SerializeToString,
-            liqi__pb2.ResFetchContestPlayerRank.FromString,
             options,
             channel_credentials,
             insecure,
